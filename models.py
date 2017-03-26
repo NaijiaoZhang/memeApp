@@ -21,26 +21,24 @@ class Tag(db.Model):
 
 class IsFriend(db.Model):
     _tablename_ = 'isFriend'
-    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
-    friend = db.Column('friend', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
+    uid = db.Column('uid', db.Integer(), primary_key=True)
+    friend = db.Column('friend', db.Integer(), primary_key=True)
 
 class PotentialPartner(db.Model):
     _tablename_ = 'potentialPartner'
-    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
-    partner = db.Column('partner', db.Integer, ForeignKey("Users.uid"), primary_key=True)
+    uid = db.Column('uid', db.Integer(), primary_key=True)
+    partner = db.Column('partner', db.Integer(),  primary_key=True)
 
 class Opinion(db.Model):
     _tablename_ = 'opinion'
-    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"))
-    memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid"))
+    uid = db.Column('uid', db.Integer(),primary_key=True)
+    memeid = db.Column('memeid', db.Integer())
     preference = db.Column('preference', db.Integer())
 
 class hasTag(db.Model):
     _tablename_ = 'hasTag'
-    memeID = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid"), primary_key=True)
-    tagName = db.Column('tagname', db.String(256), ForeignKey("Tag.name"), primary_key=True)
-
-#Molly - end edit
+    memeID = db.Column('memeid', db.Integer(), primary_key=True)
+    tagName = db.Column('tagname', db.String(256), primary_key=True)
 
 class Drinker(db.Model):
     __tablename__ = 'drinker'
@@ -70,44 +68,6 @@ class Drinker(db.Model):
         except Exception as e:
             db.session.rollback()
             raise e
-'''
-class Beer(db.Model):
-    __tablename__ = 'Meme'
-    name = db.Column('memeId', db.String(20), primary_key=True)
-    brewer = db.Column('caption', db.String(20))
 
-class Bar(db.Model):
-    __tablename__ = 'bar'
-    name = db.Column('name', db.String(20), primary_key=True)
-    address = db.Column('address', db.String(20))
-    serves = orm.relationship('Serves')
+    
 
-class Likes(db.Model):
-    __tablename__ = 'likes'
-    drinker = db.Column('drinker', db.String(20),
-                        db.ForeignKey('drinker.name'),
-                        primary_key=True)
-    beer = db.Column('beer', db.String(20),
-                     db.ForeignKey('beer.name'),
-                     primary_key=True)
-
-class Serves(db.Model):
-    __tablename__ = 'serves'
-    bar = db.Column('bar', db.String(20),
-                    db.ForeignKey('bar.name'),
-                    primary_key=True)
-    beer = db.Column('beer', db.String(20),
-                     db.ForeignKey('beer.name'),
-                     primary_key=True)
-    price = db.Column('price', db.Float())
-
-class Frequents(db.Model):
-    __tablename__ = 'frequents'
-    drinker = db.Column('drinker', db.String(20),
-                        db.ForeignKey('drinker.name'),
-                        primary_key=True)
-    bar = db.Column('bar', db.String(20),
-                    db.ForeignKey('bar.name'),
-                    primary_key=True)
-    times_a_week = db.Column('times_a_week', db.Integer())
-'''
