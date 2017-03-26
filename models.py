@@ -39,4 +39,3 @@ class hasTag(db.Model):
     _tablename_ = 'hasTag'
     memeID = db.Column('memeid', db.Integer(), primary_key=True)
     tagName = db.Column('tagname', db.String(256), primary_key=True)
-
