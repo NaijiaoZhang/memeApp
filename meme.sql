@@ -89,7 +89,7 @@ INSERT INTO Users VALUES(4,'Dad','986246',NULL);
 INSERT INTO Users VALUES(5,'Jessica','346467',NULL);
 
 INSERT INTO Meme VALUES(1,'3_days_later_2','../memes/faces/3_days_later_2.jpg','3_days_later_2' );
-INSERT INTO Meme VALUES(2,'3_hours_later','../memes/faces/3_hours_later.jpg','3_hours_later' );
+INSERT INTO Meme VALUES(2,'3_hours_later','../static/media/faces/3_hours_later.jpg','3_hours_later' );
 INSERT INTO Meme VALUES(3,'baby_troll','../memes/faces/baby_troll.jpg','baby_troll');
 INSERT INTO Meme VALUES(4,'beng','../memes/faces/beng.jpg','beng');
 
