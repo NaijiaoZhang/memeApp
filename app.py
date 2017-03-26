@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import models
 import forms
+import os
 
 app = Flask(__name__)
 app.secret_key = 's3cr3t'
@@ -45,5 +46,6 @@ def pluralize(number, singular='', plural='s'):
 if __name__ == '__main__':
     #beers = db.session.query(models.Beer).all()
     print "HIHIHI"
+    port = int(os.environ.get("PORT",5000))
     #print beers
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=port)
