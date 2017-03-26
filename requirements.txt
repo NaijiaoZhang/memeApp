@@ -9,3 +9,4 @@ Werkzeug==0.11.11
 flask_sqlalchemy
 flask_wtf
 wtforms
+psycopg2
