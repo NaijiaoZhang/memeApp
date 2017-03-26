@@ -13,6 +13,7 @@ db = SQLAlchemy(app, session_options={'autocommit': False})
 def landing_page():
     memes = db.session.query(models.Meme).all()
     return render_template('profile-pg.html',memes=memes)
+
 @app.route('/results')
 def match_results():
     memes = db.session.query(models.Meme).all()
