@@ -81,42 +81,79 @@ CREATE TRIGGER Add_To_Tag_Table
 	FOR EACH ROW
 	EXECUTE PROCEDURE Add_To_Tag_Table();
 
+#hand-populated small dataset
 
 INSERT INTO Users VALUES(1,'JOYCE DA BOMB.COM','JerryDatingApp',NULL);
 INSERT INTO Users VALUES(2,'Jerry','894836',NULL);
 INSERT INTO Users VALUES(3,'Mom','7485926',NULL);
 INSERT INTO Users VALUES(4,'Dad','986246',NULL);
 INSERT INTO Users VALUES(5,'Jessica','346467',NULL);
+INSERT INTO Users VALUES(6, 'Molly','iluvchocolate',NULL);
+INSERT INTO Users VALUES(7, 'Fangge','chasegarcia',NULL);
+INSERT INTO Users VALUES(8, 'Naijiao','im-fun-n-flirty',NULL);
+INSERT INTO Users VALUES(9, 'Joyce Choi','gurlzwhocod3',NULL);
+INSERT INTO Users VALUES(10, 'NANA','i_rock',NULL);
 
-INSERT INTO Meme VALUES(1,'3_days_later_2','../memes/faces/3_days_later_2.jpg','3_days_later_2' );
-INSERT INTO Meme VALUES(2,'3_hours_later','../memes/faces/3_hours_later.jpg','3_hours_later' );
-INSERT INTO Meme VALUES(2,'10guy','../memes/faces/10guy.jpg','10guy' );
-INSERT INTO Meme VALUES(3,'baby_troll','../memes/faces/baby_troll.jpg','baby_troll');
-INSERT INTO Meme VALUES(4,'beng','../memes/faces/beng.jpg','beng');
+INSERT INTO Meme VALUES(1,'3_days_later_2','../static/media/faces/3_days_later_2.jpg','3_days_later_2' );
+INSERT INTO Meme VALUES(2,'3_hours_later','../static/media/faces/3_hours_later.jpg','3_hours_later' );
+INSERT INTO Meme VALUES(3,'baby_troll','../static/media/faces/baby_troll.jpg','baby_troll');
+INSERT INTO Meme VALUES(4,'beng','../static/media/faces/beng.jpg','beng');
+INSERT INTO Meme VALUES(5,'aint_that_some_shit','../static/media/faces/aint_that_some_shit.jpg','aint_that_some_shit');
+INSERT INTO Meme VALUES(6,'aww_yeah','../static/media/faces/aww_yeah.jpg','aww_yeah');
+INSERT INTO Meme VALUES(7,'dat_ass','../static/media/faces/dat_ass.jpg','dat_ass');
+INSERT INTO Meme VALUES(8,'damn','../static/media/faces/damn.jpg','damn');
+INSERT INTO Meme VALUES(9,'fap_scream','../static/media/faces/fap_scream.jpg','fap_scream'); #nastyassmofo
+INSERT INTO Meme VALUES(10,'first_world_problems','../static/media/faces/first_world_problems.jpg','first_world_problems');
+INSERT INTO Meme VALUES(11,'fuck_that_yao_ming','../static/media/faces/fuck_that_yao_ming.jpg','fuck_that_yao_ming');
+INSERT INTO Meme VALUES(12,'high_expectations_asian_father','../static/media/faces/high_expectations_asian_father.jpg','high_expectations_asian_father');
 
-INSERT INTO TAG VALUES('frog');
-INSERT INTO TAG VALUES('box');
+INSERT INTO Tag VALUES('time');
+INSERT INTO Tag VALUES('spongebob');
+INSERT INTO Tag VALUES('animal');
+INSERT INTO Tag VALUES('face');
+INSERT INTO Tag VALUES('cat');
+INSERT INTO Tag VALUES('dog');
+INSERT INTO Tag VALUES('guy');
+INSERT INTO Tag VALUES('girl');
+INSERT INTO Tag VALUES('funny');
+INSERT INTO Tag VALUES('gross');
+INSERT INTO Tag VALUES('scary');
 
 INSERT INTO isFriend VALUES(1, 3);
 INSERT INTO isFriend VALUES(2, 4);
 
 INSERT INTO PotentialPartner VALUES(1, 5);
 INSERT INTO PotentialPartner VALUES(2, 5);
+INSERT INTO PotentialPartner VALUES(2, 3);
+INSERT INTO PotentialPartner VALUES(2, 4);
+INSERT INTO PotentialPartner VALUES(2, 6);
+
+
+
 
 INSERT INTO Opinion VALUES(2, 1, 1);
 INSERT INTO Opinion VALUES(2, 2, 3);
 INSERT INTO Opinion VALUES(2, 3, 3);
 
-INSERT INTO HasTag VALUES(2, 'frog');
-INSERT INTO HasTag VALUES(2, 'box');
+INSERT INTO HasTag VALUES(2, 'time');
+INSERT INTO HasTag VALUES(2, 'spongebob');
+INSERT INTO HasTag VALUES('animal');
+INSERT INTO HasTag VALUES('face');
+INSERT INTO HasTag VALUES('cat');
+INSERT INTO HasTag VALUES('dog');
+INSERT INTO HasTag VALUES('guy');
+INSERT INTO HasTag VALUES('girl');
+INSERT INTO HasTag VALUES('funny');
+INSERT INTO HasTag VALUES('gross');
+INSERT INTO HasTag VALUES('scary');
 
-Select * from users; 
+Select * from Users; 
 Select * from Meme; 
-Select * from tag;
-Select * from isFriend;
-Select * from potentialpartner; 
-Select * from opinion; 
-Select * from hastag; 
+Select * from Tag;
+Select * from IsFriend;
+Select * from PotentialPartner; 
+Select * from Opinion; 
+Select * from HasTag; 
 
 
 
