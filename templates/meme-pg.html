@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="../static/css/thumbnail-gallery.css" rel="stylesheet">
 
+    <link href="../static/css/style.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -72,11 +74,18 @@
             </div>
             
             {% for meme in memes %}
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src={{meme.filepath}} alt="">
-                </a>
-            </div>
+                <div class="col-3" style="float: left;  width: 20.0%; overflow: hidden; margin-right: 3.8%;">
+                    <a class="thumbnail_img" href="#">
+                            <img class="img-responsive" style ="width:200px;height:200px" src={{meme.filepath}} alt="">
+                    </a>
+                </div>
+      <!--       <div class="meme_thumbnail">
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail_img" style="float: left;  width: 30.8%; margin-right: 3.8%;" href="#">
+                        <img class="img-responsive" src={{meme.filepath}} alt="">
+                    </a>
+                </div>
+            </div> -->
             {% endfor %}
 
             
