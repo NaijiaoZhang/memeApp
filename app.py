@@ -12,7 +12,7 @@ db = SQLAlchemy(app, session_options={'autocommit': False})
 @app.route('/')
 def all_memes():
     memes = db.session.query(models.Meme).all()
-    return render_template('match-results-pg.html',memes=memes)
+    return render_template('meme-pg.html',memes=memes)
 
 '''
 @app.route('/drinker/<name>')
