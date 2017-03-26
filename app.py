@@ -14,8 +14,6 @@ def all_memes():
     memes = db.session.query(models.Meme).all()
     return render_template('match-results-pg.html',memes=memes)
 
-
-
 '''
 @app.route('/drinker/<name>')
 def drinker(name):
