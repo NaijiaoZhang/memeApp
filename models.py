@@ -1,6 +1,14 @@
 from sqlalchemy import sql, orm
 from app import db
 
+
+class Meme(db.Model):
+    _tablename_ = 'meme'
+    memeid = db.Column('memeid', db.Integer(), primary_key=True)
+    caption = db.Column('caption', db.String(256))
+    filepath = db.Column('filepath',db.String(256))
+    imagename = db.Column('imagename',db.String(256))
+
 class Drinker(db.Model):
     __tablename__ = 'drinker'
     name = db.Column('name', db.String(20), primary_key=True)
