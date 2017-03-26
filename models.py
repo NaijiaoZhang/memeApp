@@ -24,7 +24,7 @@ class IsFriend(db.Model):
     uid = db.Column('uid', db.Integer(), primary_key=True)
     friend = db.Column('friend', db.Integer(), primary_key=True)
 
-class PotentialPartner(db.Model):
+class potentialpartner(db.Model):
     _tablename_ = 'potentialPartner'
     uid = db.Column('uid', db.Integer(), primary_key=True)
     partner = db.Column('partner', db.Integer(),  primary_key=True)
