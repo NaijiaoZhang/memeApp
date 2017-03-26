@@ -18,6 +18,13 @@ def landing_page():
 def match_results():
     memes = db.session.query(models.Meme).all()
     return render_template('match-results-pg.html',memes=memes)
+
+@app.route('/profile')
+def profile_page():     
+    memes = db.session.query(models.Meme).all()
+    return render_template('profile-pg.html',memes=memes)
+
+
 '''
 @app.route('/drinker/<name>')
 def drinker(name):

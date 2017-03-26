@@ -90,12 +90,11 @@ INSERT INTO Users VALUES(5,'Jessica','346467',NULL);
 
 INSERT INTO Meme VALUES(1,'3_days_later_2','../memes/faces/3_days_later_2.jpg','3_days_later_2' );
 INSERT INTO Meme VALUES(2,'3_hours_later','../memes/faces/3_hours_later.jpg','3_hours_later' );
-INSERT INTO Meme VALUES(2,'10guy','../memes/faces/10guy.jpg','10guy' );
 INSERT INTO Meme VALUES(3,'baby_troll','../memes/faces/baby_troll.jpg','baby_troll');
 INSERT INTO Meme VALUES(4,'beng','../memes/faces/beng.jpg','beng');
 
-INSERT INTO TAG VALUES('frog');
-INSERT INTO TAG VALUES('box');
+INSERT INTO TAG VALUES('time');
+INSERT INTO TAG VALUES('spongebob');
 
 INSERT INTO isFriend VALUES(1, 3);
 INSERT INTO isFriend VALUES(2, 4);
@@ -107,8 +106,8 @@ INSERT INTO Opinion VALUES(2, 1, 1);
 INSERT INTO Opinion VALUES(2, 2, 3);
 INSERT INTO Opinion VALUES(2, 3, 3);
 
-INSERT INTO HasTag VALUES(2, 'frog');
-INSERT INTO HasTag VALUES(2, 'box');
+INSERT INTO HasTag VALUES(2, 'time');
+INSERT INTO HasTag VALUES(2, 'spongebob');
 
 Select * from users; 
 Select * from Meme; 

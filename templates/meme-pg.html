@@ -45,13 +45,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="meme-pg.html">Discover</a>
+                        <a href="./">Discover</a>
                     </li>
                     <li>
-                        <a href="match-results-pg.html">Your Matches</a>
+                        <a href="/results">Your Matches</a>
                     </li>
                     <li>
-                        <a href="#">Your Profile</a>
+                        <a href="/profile">Your Profile</a>
                     </li>
                 </ul>
             </div>
@@ -74,10 +74,9 @@
             {% for meme in memes %}
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
-                    <img class="img-responsive" src={{meme.filepath}} alt="">
+                    <img class="img-responsive" src="../static/media/faces/10guy.jpg" alt="">
                 </a>
             </div>
-            
             {% endfor %}
 
             
