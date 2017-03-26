@@ -2248,6 +2248,15 @@ pre code {
   .col-lg-offset-0 {
     margin-left: 0;
   }
+
+  /*added by Molly*/
+  .name-age {
+    margin-left: 100%;
+  }
+
+  .location {
+    
+  }
 }
 table {
   background-color: transparent;

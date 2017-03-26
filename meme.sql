@@ -3,7 +3,7 @@ CREATE TABLE Users
 (
 uid INTEGER NOT NULL PRIMARY KEY,
 name VARCHAR(256) NOT NULL,
-password VARCHAR(25) NOT NULL,
+password VARCHAR(256) NOT NULL,
 avatar VARCHAR(256) 
 -- CHECK(LEN(password)>10)
 );
