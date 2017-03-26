@@ -19,18 +19,11 @@ def discover_page():
     memes = db.session.query(models.Meme).all()
     return render_template('meme-pg.html',memes=memes)
 
-# @app.route('/results')
-# def match_results():
-#     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-#     allusers = db.session.query(models.Users).all()
-#     return render_template('match-results-pg.html', partners=partners, allusers=allusers)
-
 @app.route('/results')
 def match_results():
     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-    # allusers = db.session.query(models.Users).all()
-    return render_template('match-results-pg.html', partners=partners)
-
+    allusers = db.session.query(models.Users).all()
+    return render_template('match-results-pg.html', partners=partners, allusers=allusers)
 
 # @app.route('/results')
 # def match_results():
