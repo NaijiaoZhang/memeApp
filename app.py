@@ -10,9 +10,9 @@ db = SQLAlchemy(app, session_options={'autocommit': False})
 
 @app.route('/')
 def all_drinkers():
-    drinkers = db.session.query(models.Drinker).all()
-    return render_template('all-drinkers.html', drinkers=drinkers)
-
+    #drinkers = db.session.query(models.Drinker).all()
+    return render_template('all-drinkers.html')
+'''
 @app.route('/drinker/<name>')
 def drinker(name):
     drinker = db.session.query(models.Drinker)\
@@ -41,9 +41,9 @@ def edit_drinker(name):
 @app.template_filter('pluralize')
 def pluralize(number, singular='', plural='s'):
     return singular if number in (0, 1) else plural
-
+'''
 if __name__ == '__main__':
-    beers = db.session.query(models.Beer).all()
+    #beers = db.session.query(models.Beer).all()
     print "HIHIHI"
-    print beers
+    #print beers
     app.run(host='0.0.0.0', port=5000)
