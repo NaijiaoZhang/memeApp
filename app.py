@@ -10,9 +10,9 @@ app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 
 @app.route('/')
-def all_drinkers():
-    #drinkers = db.session.query(models.Drinker).all()
-    return render_template('all-drinkers.html')
+def all_memes():
+    memes = db.session.query(models.Meme).all()
+    return render_template('memes.html',memes=memes)
 '''
 @app.route('/drinker/<name>')
 def drinker(name):
@@ -44,8 +44,7 @@ def pluralize(number, singular='', plural='s'):
     return singular if number in (0, 1) else plural
 '''
 if __name__ == '__main__':
-    #beers = db.session.query(models.Beer).all()
+    test = db.session.query(models.Meme).all()
     print "HIHIHI"
     port = int(os.environ.get("PORT",5000))
-    #print beers
     app.run(host='0.0.0.0', port=port)
