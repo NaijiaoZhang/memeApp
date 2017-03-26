@@ -94,18 +94,18 @@ INSERT INTO Users VALUES(8, 'Naijiao','im-fun-n-flirty',NULL);
 INSERT INTO Users VALUES(9, 'Joyce Choi','gurlzwhocod3',NULL);
 INSERT INTO Users VALUES(10, 'NANA','i_rock',NULL);
 
-INSERT INTO Meme VALUES(1,'3_days_later_2','../memes/faces/3_days_later_2.jpg','3_days_later_2' );
+INSERT INTO Meme VALUES(1,'3_days_later_2','../static/media/faces/3_days_later_2.jpg','3_days_later_2' );
 INSERT INTO Meme VALUES(2,'3_hours_later','../static/media/faces/3_hours_later.jpg','3_hours_later' );
-INSERT INTO Meme VALUES(3,'baby_troll','../memes/faces/baby_troll.jpg','baby_troll');
-INSERT INTO Meme VALUES(4,'beng','../memes/faces/beng.jpg','beng');
-INSERT INTO Meme VALUES(5,'aint_that_some_shit','../memes/faces/aint_that_some_shit.jpg','aint_that_some_shit');
-INSERT INTO Meme VALUES(6,'aww_yeah','../memes/faces/aww_yeah.jpg','aww_yeah');
-INSERT INTO Meme VALUES(7,'dat_ass','../memes/faces/dat_ass.jpg','dat_ass');
-INSERT INTO Meme VALUES(8,'damn','../memes/faces/damn.jpg','damn');
-INSERT INTO Meme VALUES(9,'fap_scream','../memes/faces/fap_scream.jpg','fap_scream'); #nastyassmofo
-INSERT INTO Meme VALUES(10,'first_world_problems','../memes/faces/first_world_problems.jpg','first_world_problems');
-INSERT INTO Meme VALUES(11,'fuck_that_yao_ming','../memes/faces/fuck_that_yao_ming.jpg','fuck_that_yao_ming');
-INSERT INTO Meme VALUES(12,'high_expectations_asian_father','../memes/faces/high_expectations_asian_father.jpg','high_expectations_asian_father');
+INSERT INTO Meme VALUES(3,'baby_troll','../static/media/faces/baby_troll.jpg','baby_troll');
+INSERT INTO Meme VALUES(4,'beng','../static/media/faces/beng.jpg','beng');
+INSERT INTO Meme VALUES(5,'aint_that_some_shit','../static/media/faces/aint_that_some_shit.jpg','aint_that_some_shit');
+INSERT INTO Meme VALUES(6,'aww_yeah','../static/media/faces/aww_yeah.jpg','aww_yeah');
+INSERT INTO Meme VALUES(7,'dat_ass','../static/media/faces/dat_ass.jpg','dat_ass');
+INSERT INTO Meme VALUES(8,'damn','../static/media/faces/damn.jpg','damn');
+INSERT INTO Meme VALUES(9,'fap_scream','../static/media/faces/fap_scream.jpg','fap_scream'); #nastyassmofo
+INSERT INTO Meme VALUES(10,'first_world_problems','../static/media/faces/first_world_problems.jpg','first_world_problems');
+INSERT INTO Meme VALUES(11,'fuck_that_yao_ming','../static/media/faces/fuck_that_yao_ming.jpg','fuck_that_yao_ming');
+INSERT INTO Meme VALUES(12,'high_expectations_asian_father','../static/media/faces/high_expectations_asian_father.jpg','high_expectations_asian_father');
 
 INSERT INTO Tag VALUES('time');
 INSERT INTO Tag VALUES('spongebob');
