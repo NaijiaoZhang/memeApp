@@ -22,8 +22,8 @@ def discover_page():
 @app.route('/results')
 def match_results():
     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-    allusers = db.session.query(models.Users).all()
-    return render_template('match-results-pg.html', partners=partners, allusers=allusers)
+    # allusers = db.session.query(models.Users).all()
+    return render_template('match-results-pg.html', partners=partners)
 
 # @app.route('/results')
 # def match_results():
