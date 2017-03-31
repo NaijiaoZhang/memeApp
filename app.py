@@ -13,14 +13,11 @@ db = SQLAlchemy(app, session_options={'autocommit': False})
 def landing_page():
     memes = db.session.query(models.Meme).all()
     return render_template('meme-pg-old.html',memes=memes)
-<<<<<<< HEAD
-=======
 
 @app.route('/discover')
 def discover_page():
     memes = db.session.query(models.Meme).all()
     return render_template('meme-pg.html',memes=memes)
->>>>>>> origin/master
 
 @app.route('/results')
 def match_results():
