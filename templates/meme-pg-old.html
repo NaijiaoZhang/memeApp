@@ -28,10 +28,25 @@
 </head>
     
 <script>
+/**
+{% for meme in memes %}
+    {% if meme.memeid == 1 %}
         function pictureChange(){
+<<<<<<< HEAD
             document.getElementById('theImage').src="../static/media/faces/10_seconds_later.jpg";
             
+=======
+            document.getElementById('theImage').src={{meme.filepath}};
+>>>>>>> 2eb60e5a172f2d9f9ecbc6d2d328d9742021f4af
         }
+    {% endif %}
+{% endfor %}
+*/
+
+function pictureChange(){
+    document.getElementById('theImage').src="../static/media/faces/alien.jpg";
+}
+
 </script>
     
 <body>
@@ -91,7 +106,7 @@
             
             <div class="col-md-6 portfolio-item">
                 <a href="#">
-                    <img class="img-responsive" src="../static/media/arthur_fist.jpg" alt="">
+                    <img id="theImage" class="img-responsive" src="../static/media/arthur_fist.jpg" alt="">
                 </a>
             </div>
             
