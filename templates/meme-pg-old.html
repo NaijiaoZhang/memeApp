@@ -12,11 +12,11 @@
     <title>MatchMemeker: Dating with Memes!</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/button.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/button.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/4-col-portfolio.css" rel="stylesheet">
+    <link href="../static/css/4-col-portfolio.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,6 +28,7 @@
 </head>
     
 <script>
+<<<<<<< HEAD
 {% for meme in memes %}
     {% if meme.memeid == 1 %}
         function pictureChange(){
@@ -35,6 +36,11 @@
         }
     {% endif %}
 {% endfor %}
+=======
+        function pictureChange(){
+            document.getElementById('theImage').src="../static/media/arthur_fist.jpg";
+        }
+>>>>>>> origin/master
 </script>
     
 <body>
@@ -56,13 +62,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Discover</a>
+                        <a href="/discover">Discover</a>
                     </li>
                     <li>
-                        <a href="match-results-pg.html">Your Matches</a>
+                        <a href="/results">Your Matches</a>
                     </li>
                     <li>
-                        <a href="profile-pg.html">Your Profile</a>
+                        <a href="/profile">Your Profile</a>
                     </li>
                 </ul>
             </div>
@@ -94,7 +100,7 @@
             
             <div class="col-md-6 portfolio-item">
                 <a href="#">
-                    <img class="img-responsive" src="media/arthur_fist.jpg" alt="">
+                    <img class="img-responsive" src="../static/media/arthur_fist.jpg" alt="">
                 </a>
             </div>
             
