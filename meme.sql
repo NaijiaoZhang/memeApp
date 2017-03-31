@@ -124,6 +124,12 @@ INSERT INTO isFriend VALUES(2, 4);
 
 INSERT INTO PotentialPartner VALUES(1, 5);
 INSERT INTO PotentialPartner VALUES(2, 5);
+INSERT INTO PotentialPartner VALUES(2, 3);
+INSERT INTO PotentialPartner VALUES(2, 4);
+INSERT INTO PotentialPartner VALUES(2, 6);
+
+
+
 
 INSERT INTO Opinion VALUES(2, 1, 1);
 INSERT INTO Opinion VALUES(2, 2, 3);
