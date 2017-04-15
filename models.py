@@ -31,9 +31,16 @@ class potentialpartner(db.Model):
 
 class Opinion(db.Model):
     _tablename_ = 'opinion'
-    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
-    memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid")) #buggy
+    #uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
+    uid = db.Column('uid', db.Integer(), primary_key=True)
+    #memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid")) #buggy
+    memeid = db.Column('memeid', db.Integer())
     preference = db.Column('preference', db.Integer())
+    
+    def __init__(self, uid=None, memeid=None, preference=None):
+        self.uid = uid
+        self.memeid = memeid
+        self.preference = preference
 
 class hasTag(db.Model):
     _tablename_ = 'hasTag'
