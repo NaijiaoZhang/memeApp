@@ -97,7 +97,7 @@ function pictureChange(){
             
             <div class="col-md-3">
                 <form action="{{ request.path }}" method="post">
-                    <input type="submit" class="btn btn-warning btn-circle btn-xl center" value="No"/>
+                    <input type="submit" name="submit" class="btn btn-warning btn-circle btn-xl center" value="NO"/>
                     <!--<button type="button" onclick="pictureChange()" class="btn btn-warning btn-circle btn-xl center"><i class="glyphicon glyphicon-remove"></i></button>-->
                 </form>
             </div>
@@ -110,7 +110,7 @@ function pictureChange(){
             
             <div class="col-md-3">
                 <form action="{{ request.path }}" method="post">
-                    <input type="submit" class="btn btn-danger btn-circle btn-xl center" value="Yes"/>
+                    <input type="submit" name="submit" class="btn btn-danger btn-circle btn-xl center" value="YES"/>
                     <!--<button type="button" onclick="pictureChange()" class="btn btn-danger btn-circle btn-xl center"><i class="glyphicon glyphicon-heart"></i></button>-->
                 </form>   
             </div>

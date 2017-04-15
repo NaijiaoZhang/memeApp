@@ -1006,3 +1006,7 @@ Select * from IsFriend;
 Select * from PotentialPartner; 
 Select * from Opinion; 
 Select * from HasTag; 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master

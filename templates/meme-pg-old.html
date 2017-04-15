@@ -28,18 +28,13 @@
 </head>
     
 <script>
-/**
-{% for meme in memes %}
-    {% if meme.memeid == 1 %}
-        function pictureChange(){
-            document.getElementById('theImage').src={{meme.filepath}};
-        }
-    {% endif %}
-{% endfor %}
-*/
 
-function pictureChange(){
+function pictureChangeLike(){
     document.getElementById('theImage').src="../static/media/faces/alien.jpg";
+}
+
+function pictureChangeDislike(){
+    document.getElementById('theImage').src="../static/media/faces/10_seconds_later.jpg";
 }
 
 </script>
@@ -96,7 +91,7 @@ function pictureChange(){
         <div class="row">
             
             <div class="col-md-3">
-                <button type="button" onclick="pictureChange()" class="btn btn-warning btn-circle btn-xl center"><i class="glyphicon glyphicon-remove"></i></button>
+                <button type="button" onclick="pictureChangeDislike()" class="btn btn-warning btn-circle btn-xl center"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
             
             <div class="col-md-6 portfolio-item">
@@ -106,7 +101,7 @@ function pictureChange(){
             </div>
             
             <div class="col-md-3">
-                <button type="button" class="btn btn-danger btn-circle btn-xl center"><i class="glyphicon glyphicon-heart"></i></button>
+                <button type="button" onclick="pictureChangeLike()" class="btn btn-danger btn-circle btn-xl center"><i class="glyphicon glyphicon-heart"></i></button>
             </div>
     
             

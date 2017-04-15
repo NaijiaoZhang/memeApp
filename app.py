@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.secret_key = 's3cr3t'
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
+current = 1
 
 '''
 @app.route('/')
@@ -24,8 +25,8 @@ def discover_page():
 @app.route('/results')
 def match_results():
     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-    allusers = db.session.query(models.Users).all()
-    return render_template('match-results-pg.html', partners=partners, allusers=allusers)
+    # allusers = db.session.query(models.Users).all()
+    return render_template('match-results-pg.html', partners=partners)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -46,26 +47,37 @@ def profile_page():
 @app.route('/', methods = ['GET', 'POST'])
 def landing_page():
     
-    meme = db.session.query(models.Meme).filter(models.Meme.memeid == 4).one()
+    global current
+    meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
     
     if request.method == 'POST':
         #if request.form['submit'] == 'NO':
-        opinion = models.Opinion(2, 4, 1)
+        '''opinion = models.Opinion(2, 4, 1)
          
         db.session.add(opinion)
         db.session.commit()
         flash('-Record was successfully added')
 
-        meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()
+        meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()'''
             
-        '''elif request.form['submit'] == 'YES':
-            opinion = opinion(0, 0, 1)
-         
+        if request.form['submit'] == 'YES':
+            opinion = models.Opinion(5, current, 1)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
-            meme = db.session.query(models.Meme).filter(models.Meme.memeid == 2).one()'''
-           
+            
+            current += 1
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
+            
+            
+        elif request.form['submit'] == 'NO':
+            opinion = models.Opinion(6, current, 0)
+            db.session.add(opinion)
+            db.session.commit()
+            flash('+Record was successfully added')
+            
+            current += 1
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()   
     
     return render_template('meme-pg-new.html', meme = meme)
 
@@ -100,6 +112,5 @@ def pluralize(number, singular='', plural='s'):
     return singular if number in (0, 1) else plural
 '''
 if __name__ == '__main__':
-    print "HIHIHI"
     port = int(os.environ.get("PORT",5000))
     app.run(host='0.0.0.0', port=port)
