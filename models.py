@@ -1,4 +1,4 @@
-from sqlalchemy import sql, orm
+from sqlalchemy import sql, orm, ForeignKey
 from app import db
 
 class Users(db.Model):
@@ -21,21 +21,21 @@ class Tag(db.Model):
 
 class IsFriend(db.Model):
     _tablename_ = 'isFriend'
-    uid = db.Column('uid', db.Integer(), primary_key=True)
-    friend = db.Column('friend', db.Integer(), primary_key=True)
+    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
+    friend = db.Column('friend', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
 
 class potentialpartner(db.Model):
     _tablename_ = 'potentialPartner'
-    uid = db.Column('uid', db.Integer(), primary_key=True)
-    partner = db.Column('partner', db.Integer(),  primary_key=True)
+    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
+    partner = db.Column('partner', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
 
 class Opinion(db.Model):
     _tablename_ = 'opinion'
-    uid = db.Column('uid', db.Integer(),primary_key=True)
-    memeid = db.Column('memeid', db.Integer())
+    uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
+    memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid")) #buggy
     preference = db.Column('preference', db.Integer())
 
 class hasTag(db.Model):
     _tablename_ = 'hasTag'
-    memeID = db.Column('memeid', db.Integer(), primary_key=True)
-    tagName = db.Column('tagname', db.String(256), primary_key=True)
+    memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid"), primary_key=True)
+    tagName = db.Column('tagname', db.String(256), ForeignKey("Tag.name"), primary_key=True)

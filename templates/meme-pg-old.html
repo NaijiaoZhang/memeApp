@@ -28,9 +28,20 @@
 </head>
     
 <script>
+/**
+{% for meme in memes %}
+    {% if meme.memeid == 1 %}
         function pictureChange(){
-            document.getElementById('theImage').src="../static/media/arthur_fist.jpg";
+            document.getElementById('theImage').src={{meme.filepath}};
         }
+    {% endif %}
+{% endfor %}
+*/
+
+function pictureChange(){
+    document.getElementById('theImage').src="../static/media/faces/alien.jpg";
+}
+
 </script>
     
 <body>
@@ -90,7 +101,7 @@
             
             <div class="col-md-6 portfolio-item">
                 <a href="#">
-                    <img class="img-responsive" src="../static/media/arthur_fist.jpg" alt="">
+                    <img id="theImage" class="img-responsive" src="../static/media/arthur_fist.jpg" alt="">
                 </a>
             </div>
             
