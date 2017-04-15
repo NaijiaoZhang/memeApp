@@ -96,17 +96,23 @@ function pictureChange(){
         <div class="row">
             
             <div class="col-md-3">
-                <button type="button" onclick="pictureChange()" class="btn btn-warning btn-circle btn-xl center"><i class="glyphicon glyphicon-remove"></i></button>
+                <form action="{{ request.path }}" method="post">
+                    <input type="submit" class="btn btn-warning btn-circle btn-xl center" value="No"/>
+                    <!--<button type="button" onclick="pictureChange()" class="btn btn-warning btn-circle btn-xl center"><i class="glyphicon glyphicon-remove"></i></button>-->
+                </form>
             </div>
             
             <div class="col-md-6 portfolio-item">
                 <a href="#">
-                    <img id="theImage" class="img-responsive" src="../static/media/arthur_fist.jpg" alt="">
+                    <img id="theImage" class="img-responsive" src={{meme.filepath}} alt="">
                 </a>
             </div>
             
             <div class="col-md-3">
-                <button type="button" class="btn btn-danger btn-circle btn-xl center"><i class="glyphicon glyphicon-heart"></i></button>
+                <form action="{{ request.path }}" method="post">
+                    <input type="submit" class="btn btn-danger btn-circle btn-xl center" value="Yes"/>
+                    <!--<button type="button" onclick="pictureChange()" class="btn btn-danger btn-circle btn-xl center"><i class="glyphicon glyphicon-heart"></i></button>-->
+                </form>   
             </div>
     
             

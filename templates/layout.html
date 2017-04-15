@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Flask DB-Beers Example</title>
     <meta name="description" content="A sample Flask website for db-beers"/>
     <meta name="keywords" content="flask, db-beers"/>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
@@ -20,17 +19,38 @@
     <!-- Custom CSS -->
     <link href="../static/css/round-about.css" rel="stylesheet">
 
+    <link href="../static/css/template-styles.css" rel="stylesheet">
+
      <!-- jQuery -->
     <script src="../static/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../static/js/bootstrap.min.js"></script>
   </head>
-  <body>
-    <h1><img src="/static/img/beer.jpg" style="float:right"/> Flask <a href="/">DB-Beers Example</a></h1>
-    <hr/>
-    <!-- <h2 id="heading">{% block heading %}{% endblock %}</h2>
-    {% block content %}{% endblock %} -->
-    <h1>WHAT THE</h1>
-  </body>
+  <title>Meme App</title>
+  <div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Meme Dating App :)</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <!-- <form action="{{ url_for('landing_page') }}" method=post>
+            <dl>
+              <dt>Username:
+              <dd><input type=text name=username>
+              <dt>Password:
+              <dd><input type=password name=password>
+              <dd><input type=submit value=Login>
+            </dl>
+        </form> -->
+      </form>
+
+    </div> <!-- /container -->
 </html>
