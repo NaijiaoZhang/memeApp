@@ -24,16 +24,15 @@ def match_results():
     allusers = db.session.query(models.Users).all()
     return render_template('match-results-pg.html', partners=partners, allusers=allusers)
 
-
-
-# @app.route('/login', methods=['GET','POST'])
-# def login():
-#     if request.form[]
-
-# @app.route('/results')
-# def match_results():
-#     memes = db.session.query(models.Meme).all()
-#     return render_template('match-results-pg.html',memes=memes)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('home'))
+    return render_template('login.html', error=error)
 
 @app.route('/profile')
 def profile_page():     
