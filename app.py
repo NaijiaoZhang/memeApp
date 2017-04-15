@@ -11,8 +11,7 @@ db = SQLAlchemy(app, session_options={'autocommit': False})
 
 @app.route('/')
 def landing_page():
-    memes = db.session.query(models.Meme).all()
-    return render_template('meme-pg-old.html',memes=memes)
+    return render_template('layout.html')
 
 @app.route('/discover')
 def discover_page():
@@ -24,6 +23,12 @@ def match_results():
     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
     allusers = db.session.query(models.Users).all()
     return render_template('match-results-pg.html', partners=partners, allusers=allusers)
+
+
+
+# @app.route('/login', methods=['GET','POST'])
+# def login():
+#     if request.form[]
 
 # @app.route('/results')
 # def match_results():
@@ -67,6 +72,5 @@ def pluralize(number, singular='', plural='s'):
     return singular if number in (0, 1) else plural
 '''
 if __name__ == '__main__':
-    print "HIHIHI"
     port = int(os.environ.get("PORT",5000))
     app.run(host='0.0.0.0', port=port)
