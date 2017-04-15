@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.secret_key = 's3cr3t'
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
+current = 1
 
 '''
 @app.route('/')
@@ -40,7 +41,8 @@ def profile_page():
 @app.route('/', methods = ['GET', 'POST'])
 def landing_page():
     
-    meme = db.session.query(models.Meme).filter(models.Meme.memeid == 4).one()
+    global current
+    meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
     
     if request.method == 'POST':
         #if request.form['submit'] == 'NO':
@@ -53,19 +55,23 @@ def landing_page():
         meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()'''
             
         if request.form['submit'] == 'YES':
-            opinion = models.Opinion(5, 2, 1)
+            opinion = models.Opinion(5, current, 1)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
-            meme = db.session.query(models.Meme).filter(models.Meme.memeid == 2).one()
             
-        else:
-            opinion = models.Opinion(6, 4, 0)
+            current += 1
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
+            
+            
+        elif request.form['submit'] == 'NO':
+            opinion = models.Opinion(6, current, 0)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
-            meme = db.session.query(models.Meme).filter(models.Meme.memeid == 4).one()
-           
+            
+            current += 1
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()   
     
     return render_template('meme-pg-new.html', meme = meme)
 
@@ -101,6 +107,7 @@ def pluralize(number, singular='', plural='s'):
 '''
 if __name__ == '__main__':
 
+    
     print "HIHIHI"
     port = int(os.environ.get("PORT",5000))
     app.run(host='0.0.0.0', port=port)
