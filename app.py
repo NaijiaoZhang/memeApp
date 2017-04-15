@@ -44,21 +44,27 @@ def landing_page():
     
     if request.method == 'POST':
         #if request.form['submit'] == 'NO':
-        opinion = models.Opinion(2, 4, 1)
+        '''opinion = models.Opinion(2, 4, 1)
          
         db.session.add(opinion)
         db.session.commit()
         flash('-Record was successfully added')
 
-        meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()
+        meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()'''
             
-        '''elif request.form['submit'] == 'YES':
-            opinion = opinion(0, 0, 1)
-         
+        if request.form['submit'] == 'YES':
+            opinion = models.Opinion(5, 2, 1)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
-            meme = db.session.query(models.Meme).filter(models.Meme.memeid == 2).one()'''
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == 2).one()
+            
+        else:
+            opinion = models.Opinion(6, 4, 0)
+            db.session.add(opinion)
+            db.session.commit()
+            flash('+Record was successfully added')
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == 4).one()
            
     
     return render_template('meme-pg-new.html', meme = meme)
