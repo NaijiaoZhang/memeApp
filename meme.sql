@@ -83,16 +83,16 @@ CREATE TRIGGER Add_To_Tag_Table
 
 -- #hand-populated small dataset
 
-INSERT INTO Users VALUES(1,'JOYCE DA BOMB.COM','JerryDatingApp',NULL);
-INSERT INTO Users VALUES(2,'Jerry','894836',NULL);
-INSERT INTO Users VALUES(3,'Mom','7485926',NULL);
-INSERT INTO Users VALUES(4,'Dad','986246',NULL);
-INSERT INTO Users VALUES(5,'Jessica','346467',NULL);
-INSERT INTO Users VALUES(6, 'Molly','iluvchocolate',NULL);
-INSERT INTO Users VALUES(7, 'Fangge','chasegarcia',NULL);
-INSERT INTO Users VALUES(8, 'Naijiao','im-fun-n-flirty',NULL);
-INSERT INTO Users VALUES(9, 'Joyce Choi','gurlzwhocod3',NULL);
-INSERT INTO Users VALUES(10, 'NANA','i_rock',NULL);
+INSERT INTO Users VALUES(1,'joyce','JerryDatingApp',NULL);
+INSERT INTO Users VALUES(2,'jerry','894836',NULL);
+INSERT INTO Users VALUES(3,'mom','7485926',NULL);
+INSERT INTO Users VALUES(4,'dad','986246',NULL);
+INSERT INTO Users VALUES(5,'jessica','346467',NULL);
+INSERT INTO Users VALUES(6, 'molly','iluvchocolate',NULL);
+INSERT INTO Users VALUES(7, 'fangge','chasegarcia',NULL);
+INSERT INTO Users VALUES(8, 'naijiao','im-fun-n-flirty',NULL);
+INSERT INTO Users VALUES(9, 'joyce Choi','gurlzwhocod3',NULL);
+INSERT INTO Users VALUES(10, 'nana','i_rock',NULL);
 
 
 -- INSERT INTO Meme VALUES(1,'3_days_later_2','../static/media/faces/3_days_later_2.jpg','3_days_later_2' );
@@ -129,6 +129,21 @@ INSERT INTO PotentialPartner VALUES(2, 3);
 INSERT INTO PotentialPartner VALUES(2, 4);
 INSERT INTO PotentialPartner VALUES(2, 6);
 
+INSERT INTO Opinion VALUES(2, 1, 1);
+INSERT INTO Opinion VALUES(2, 2, 3);
+INSERT INTO Opinion VALUES(2, 3, 3);
+
+INSERT INTO HasTag VALUES(2, 'time');
+INSERT INTO HasTag VALUES(2, 'spongebob');
+INSERT INTO HasTag VALUES('animal');
+INSERT INTO HasTag VALUES('face');
+INSERT INTO HasTag VALUES('cat');
+INSERT INTO HasTag VALUES('dog');
+INSERT INTO HasTag VALUES('guy');
+INSERT INTO HasTag VALUES('girl');
+INSERT INTO HasTag VALUES('funny');
+INSERT INTO HasTag VALUES('gross');
+INSERT INTO HasTag VALUES('scary');
 -- INSERT INTO Opinion VALUES(2, 1, 1);
 -- INSERT INTO Opinion VALUES(2, 1, 1);
 -- INSERT INTO Opinion VALUES(2, 2, 3);
