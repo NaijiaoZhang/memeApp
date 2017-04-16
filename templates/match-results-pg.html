@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/discover">Discover</a>
+                        <a href="../">Discover</a>
                     </li>
                     <li>
                         <a href="#">Your Matches</a>
@@ -86,49 +86,18 @@
             <div class="col-lg-12">
                 <h2 class="page-header">Rankings</h2>
             </div>
+            {% block content %}
+            {% for buddy in partners %}
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
-                <h3>Molly Chen
+                <h3> 
+                    {{ buddy.partner }}
                     <small>1</small>
                 </h3>
                 <p>I'm fun. </p>
             </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
-                <h3>Naijiao Zhang
-                    <small>2</small>
-                </h3>
-                <p>I'm fun.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
-                <h3>Fangge Deng
-                    <small>3</small>
-                </h3>
-                <p>I'm fun.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
-                <h3>Joyce Choi
-                    <small>4</small>
-                </h3>
-                <p>I'm fun.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
-                <h3>Sudeepa Roy
-                    <small>5</small>
-                </h3>
-                <p>I'm fun.</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
-                <h3>Junyang Gao
-                    <small>6</small>
-                </h3>
-                <p>I'm fun.</p>
-            </div>
-            
+            {% endfor %}
+            {% endblock %}
         </div>
 
         <hr>
@@ -146,15 +115,10 @@
 
     </div>
     <!-- /.container -->
-    {% block content %}
-
-    {% for meme in memes %}
-        {{ meme.caption }}
-    {% endfor %}
-    This is an example to show people. 
-
-{% endblock %}
+    
 
 </body>
 
 </html>
+
+

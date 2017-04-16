@@ -10,7 +10,6 @@ app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 current = 1
 
-
 @app.route('/discover')
 def discover_page():
     memes = db.session.query(models.Meme).all()
@@ -19,8 +18,8 @@ def discover_page():
 @app.route('/results')
 def match_results():
     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-    allusers = db.session.query(models.Users).all()
-    return render_template('match-results-pg.html', partners=partners, allusers=allusers)
+    # allusers = db.session.query(models.Users).all()
+    return render_template('match-results-pg.html', partners=partners)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
