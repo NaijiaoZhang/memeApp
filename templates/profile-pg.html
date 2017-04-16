@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% if not session['logged_in'] %}
+<p>Please Log In!!</p>
+{% else %}
 <head>
 
     <meta charset="utf-8">
@@ -150,5 +152,5 @@
     </script>
 
 </body>
-
+{% endif %}
 </html>
