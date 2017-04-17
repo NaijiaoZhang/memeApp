@@ -90,8 +90,8 @@ INSERT INTO Users VALUES(4,'dad','986246',NULL);
 INSERT INTO Users VALUES(5,'jessica','346467',NULL);
 INSERT INTO Users VALUES(6, 'molly','iluvchocolate',NULL);
 INSERT INTO Users VALUES(7, 'fangge','chasegarcia',NULL);
-INSERT INTO Users VALUES(8, 'naijiao','im-fun-n-flirty',NULL);
-INSERT INTO Users VALUES(9, 'joyce Choi','gurlzwhocod3',NULL);
+INSERT INTO Users VALUES(8, 'naijiao','admin',NULL);
+--INSERT INTO Users VALUES(9, 'joyce Choi','gurlzwhocod3',NULL);
 INSERT INTO Users VALUES(10, 'nana','i_rock',NULL);
 
 
