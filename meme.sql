@@ -130,8 +130,8 @@ INSERT INTO PotentialPartner VALUES(2, 4);
 INSERT INTO PotentialPartner VALUES(2, 6);
 
 INSERT INTO Opinion VALUES(2, 1, 1);
-INSERT INTO Opinion VALUES(2, 2, 3);
-INSERT INTO Opinion VALUES(2, 3, 3);
+INSERT INTO Opinion VALUES(2, 2, -1);
+INSERT INTO Opinion VALUES(2, 3, -1);
 
 INSERT INTO HasTag VALUES(2, 'time');
 INSERT INTO HasTag VALUES(2, 'spongebob');
