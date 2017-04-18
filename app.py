@@ -58,7 +58,7 @@ def landing_page():
         meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()'''
             
         if request.form['submit'] == 'YES':
-            opinion = models.Opinion(5, current, 1)
+            opinion = models.Opinion(8, current, 1)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
@@ -67,7 +67,7 @@ def landing_page():
             
             
         elif request.form['submit'] == 'NO':
-            opinion = models.Opinion(6, current, 0)
+            opinion = models.Opinion(8, current, 0)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
