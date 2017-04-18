@@ -81,6 +81,7 @@ CREATE TRIGGER Add_To_Tag_Table
 	FOR EACH ROW
 	EXECUTE PROCEDURE Add_To_Tag_Table();
 
+
 -- #hand-populated small dataset
 
 INSERT INTO Users VALUES(1,'joyce','JerryDatingApp',NULL);
