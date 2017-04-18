@@ -50,6 +50,12 @@ tagName VARCHAR(256) NOT NULL REFERENCES Tag(name),
 PRIMARY KEY(memeID,tagName)
 );
 
+
+CREATE TABLE Rank AS
+SELECT Opinion.uid, HasTag.tagName;
+FROM Opinion.memeID = HasTag.memeID;
+ORDER BY Opinion.uid DESC;
+
 -- check if the memes exist in the database or not 
 CREATE FUNCTION Add_To_Meme_Table() RETURNS TRIGGER AS $$
 BEGIN 
