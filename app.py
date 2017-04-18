@@ -10,6 +10,7 @@ app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 current = 1
 
+# @app.route('/discover')
 @app.route('/discover')
 def discover_page():
     memes = db.session.query(models.Meme).all()
@@ -39,8 +40,9 @@ def login():
 @app.route('/profile/<userId>')
 def profile_page(userId):     
     memes = db.session.query(models.Meme).all()
+    # print userId+": fdsklafjlsdafjsdalkfhsaldghsljad"
     return render_template('profile-pg.html',memes=memes)
-
+    # return render_template('meme-pg-new.html',memes=memes)
 
 @app.route('/memes', methods = ['GET', 'POST'])
 def landing_page():
@@ -76,6 +78,7 @@ def landing_page():
             meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()   
     
     return render_template('meme-pg-new.html', meme = meme)
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
