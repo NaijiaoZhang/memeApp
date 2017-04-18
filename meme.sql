@@ -180,8 +180,12 @@ INSERT INTO Meme VALUES(8, '346_minutes_later','../static/media/faces/346_minute
 INSERT INTO Meme VALUES(9, '3_28_am','../static/media/faces/3_28_am.jpg','3_28_am.jpg');
 
 INSERT INTO HasTag VALUES(1, 'single-image');
-INSERT INTO HasTag VALUES(2, 'single-image');
+INSERT INTO HasTag VALUES(2, 'gaming');
 INSERT INTO HasTag VALUES(3, 'wholesome');
+INSERT INTO HasTag VALUES(4, 'anime');
+INSERT INTO HasTag VALUES(5, 'politics');
+INSERT INTO HasTag VALUES(6, 'race');
+INSERT INTO HasTag VALUES(3, 'celebrity');
 
 INSERT INTO Opinion VALUES(8,1,1);
 

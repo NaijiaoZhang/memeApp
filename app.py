@@ -38,8 +38,11 @@ def login():
 
 @app.route('/profile/<userId>')
 def profile_page(userId):     
-    memes = db.session.query(models.Meme).all()
-    return render_template('profile-pg.html',memes=memes)
+    users = db.session.query(models.tagcount).filter_by(uid=userId)
+    name = db.session.query(models.Users).filter_by(uid=userId)
+    particularName = name[0]
+    particularUser = users[0]
+    return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
 
 
 @app.route('/memes', methods = ['GET', 'POST'])

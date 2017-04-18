@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-lg-12" align = "center">
                 <!--pull name from DB-->
-                <h1>Molly, 19</h1>
+                <h1>{{particularName.name.title()}}, 20</h1>
             <div class="radarChart"></div>
 
             <script src="../static/js/radarChart.js"></script>   
@@ -130,14 +130,14 @@
 
                 var data = [
                           [//iPhone
-                            {axis:"Multi-Panel",value:0.22},
-                            {axis:"Celebrity",value:0.28},
-                            {axis:"Single-Image",value:0.29},
-                            {axis:"Anime",value:0.17},
-                            {axis:"Gaming",value:0.22},
-                            {axis:"Politics",value:0.02},
-                            {axis:"Wholesome",value:0.11},
-                            {axis:"Race",value:0.60}          
+                            {axis:"Multi-Panel",value:"{{particularUser.multipanel/particularUser.total}}"},
+                            {axis:"Celebrity",value:"{{particularUser.celebrity/particularUser.total}}"},
+                            {axis:"Single-Image",value:"{{ particularUser.singleimage/particularUser.total }}"},
+                            {axis:"Anime",value:"{{particularUser.anime/particularUser.total}}"},
+                            {axis:"Gaming",value:"{{particularUser.gaming/particularUser.total}}"},
+                            {axis:"Wholesome",value:"{{particularUser.wholesome/particularUser.total}}"},
+                            {axis:"Politics",value:"{{particularUser.politics/particularUser.total}}"},
+                            {axis:"Race",value:"{{particularUser.race/particularUser.total}}"}          
                           ]
                         ];
                 ////////////////////////////////////////////////////////////// 
@@ -163,6 +163,7 @@
             <div class="subheading" align = "center">
             <!--pull location/school from DB-->
                 <h3>Duke University</h3>
+
             </div>
 
             <!--pull bio from DB-->
