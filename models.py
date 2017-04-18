@@ -20,12 +20,12 @@ class Tag(db.Model):
     name = db.Column('name', db.String(256), primary_key=True)
 
 class IsFriend(db.Model):
-    _tablename_ = 'isFriend'
+    _tablename_ = 'isfriend'
     uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
     friend = db.Column('friend', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
 
-class potentialpartner(db.Model):
-    _tablename_ = 'potentialPartner'
+class PotentialPartner(db.Model):
+    _tablename_ = 'potentialpartner'
     uid = db.Column('uid', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
     partner = db.Column('partner', db.Integer(), ForeignKey("Users.uid"), primary_key=True)
 
@@ -42,7 +42,23 @@ class Opinion(db.Model):
         self.memeid = memeid
         self.preference = preference
 
-class hasTag(db.Model):
-    _tablename_ = 'hasTag'
+class HasTag(db.Model):
+    _tablename_ = 'hastag'
     memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid"), primary_key=True)
     tagName = db.Column('tagname', db.String(256), ForeignKey("Tag.name"), primary_key=True)
+
+
+# I HAVE NO IDEA WHY BUT SOME RELATIONS NEED TO BE ALL LOWER CASE?????
+class tagcount(db.Model):
+    _tablename_ = "TagAmount"
+    uid = db.Column('uid', db.Integer(), ForeignKey("users.uid"), primary_key=True)
+    multipanel = db.Column('multipanel',db.Integer())
+    celebrity = db.Column('celebrity',db.Integer())
+    singleimage = db.Column('singleimage',db.Integer())
+    anime = db.Column('anime',db.Integer())
+    gaming = db.Column('gaming',db.Integer())
+    politics = db.Column('politics',db.Integer())
+    wholesome = db.Column('wholesome',db.Integer())
+    race = db.Column('race',db.Integer())
+    total = db.Column('total',db.Integer())
+
