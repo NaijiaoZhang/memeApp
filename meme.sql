@@ -64,6 +64,7 @@ race INTEGER NOT NULL,
 total INTEGER NOT NULL
 );
 
+
 -- check if the memes exist in the database or not 
 CREATE FUNCTION Add_To_Opinion_Table() RETURNS TRIGGER AS $$
 BEGIN 
