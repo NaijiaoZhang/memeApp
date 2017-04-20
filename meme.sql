@@ -188,6 +188,8 @@ INSERT INTO HasTag VALUES(6, 'race');
 INSERT INTO HasTag VALUES(3, 'celebrity');
 
 INSERT INTO Opinion VALUES(8,1,1);
+INSERT INTO Opinion VALUES(1,1,1);
+INSERT INTO Opinion VALUES(7,1,1);
 
 -- INSERT INTO Meme VALUES(10, '3_days_later','../static/media/faces/3_days_later.jpg','3_days_later.jpg');
 -- INSERT INTO Meme VALUES(11, '3_days_later_2','../static/media/faces/3_days_later_2.jpg','3_days_later_2.jpg');

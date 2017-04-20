@@ -19,10 +19,30 @@ def discover_page():
 def match_results(userId):
     # partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
     # allusers = db.session.query(models.Users).all()
-    memes = db.session.query(models.Meme).all()
-    
+    tagcount = db.session.query(models.tagcount).all()
+    print "----ALL TAGCOUNT: "
+    print tagcount
+    print "----END TAGCOUNT: "
+    firstTagCount = tagcount[0]
+    print "----ALL SINGLE TAGCOUNT: "
+    print firstTagCount.uid 
+    print "----END SINGLE TAGCOUNT: "
+    print "----userID: " + userId
+
+    print "----START LOOP: "
+    # get firstTagCount for current user. 
+    for u1 in tagcount:
+        print u1.uid
+        print u1.celebrity
+        print u1.anime
+        print u1.gaming
+    print "----END LOOP: "
+
+    print "----START LENGTH: "
+    print len(tagcount)
+    print "----END LENGTH: "
     # return render_template('match-results-pg.html', partners=partners)
-    return render_template('match-results-pg.html', memes=memes)
+    return render_template('match-results-pg.html', firstTagCount=firstTagCount)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -39,6 +59,7 @@ def login():
             return redirect(url_for('profile_page',userId=particularUser.uid))
     return render_template('layout.html', error=error)
 
+
 @app.route('/profile/<userId>')
 def profile_page(userId):     
     users = db.session.query(models.tagcount).filter_by(uid=userId) 
@@ -47,9 +68,9 @@ def profile_page(userId):
     # user
     particularUser = users[0]
     particularName = name[0]
-    return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
+    return render_template('profile-pg.html', particularUser=particularUser,particularName=particularName)
 
-@app.route('/memes', methods = ['GET', 'POST'])
+@app.route('/memes/<userId>', methods = ['GET', 'POST'])
 def landing_page(): 
     global current 
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
