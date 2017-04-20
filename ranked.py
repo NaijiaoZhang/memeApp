@@ -1,5 +1,15 @@
 import operator
 
+#
+# @author: Ritesh Agrawal
+# @Date: 13 Feb 2013
+# @Description: This is an implementation of rank biased overlap score 
+# (Refererence: http://www.umiacs.umd.edu/~wew/papers/wmz10_tois.pdf). 
+# This is a modified implementation of  https://github.com/maslinych/linis-scripts/blob/master/rbo_calc.py
+# It is a linear implementation of the RBO and assumes there are no
+# duplicates and doesn't handle for ties. 
+#
+
 def RBO(l1, l2, p=0.9):
     """
         Calculates Ranked Biased Overlap (RBO) score. 
