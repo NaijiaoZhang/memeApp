@@ -3,7 +3,8 @@ CREATE TABLE Users
 uid INTEGER NOT NULL PRIMARY KEY,
 name VARCHAR(256) NOT NULL,
 password VARCHAR(256) NOT NULL,
-avatar VARCHAR(256) 
+avatar VARCHAR(256),
+currentMeme INTEGER NOT NULL
 -- CHECK(LEN(password)>10)
 );
 
@@ -140,16 +141,16 @@ CREATE TRIGGER Add_To_Tag_Table
 
 -- #hand-populated small dataset
 
-INSERT INTO Users VALUES(1,'joyce','JerryDatingApp',NULL);
-INSERT INTO Users VALUES(2,'jerry','894836',NULL);
-INSERT INTO Users VALUES(3,'mom','7485926',NULL);
-INSERT INTO Users VALUES(4,'dad','986246',NULL);
-INSERT INTO Users VALUES(5,'jessica','346467',NULL);
-INSERT INTO Users VALUES(6, 'molly','iluvchocolate',NULL);
-INSERT INTO Users VALUES(7, 'fangge','chasegarcia',NULL);
-INSERT INTO Users VALUES(8, 'naijiao','admin',NULL);
-INSERT INTO Users VALUES(9, 'joyce Choi','gurlzwhocod3',NULL);
-INSERT INTO Users VALUES(10, 'nana','i_rock',NULL);
+INSERT INTO Users VALUES(1,'joyce','admin',NULL, 1);
+INSERT INTO Users VALUES(2,'jerry','admin',NULL, 1);
+INSERT INTO Users VALUES(3,'mom','admin',NULL, 1);
+INSERT INTO Users VALUES(4,'dad','admin',NULL, 1);
+INSERT INTO Users VALUES(5,'jessica','admin',NULL, 1);
+INSERT INTO Users VALUES(6, 'molly','admin',NULL, 1);
+INSERT INTO Users VALUES(7, 'fangge','admin',NULL, 1);
+INSERT INTO Users VALUES(8, 'naijiao','admin',NULL, 1);
+INSERT INTO Users VALUES(9, 'joyce Choi','admin',NULL, 1);
+INSERT INTO Users VALUES(10, 'nana','admin',NULL, 1);
 
 INSERT INTO Tag VALUES('multi-panel');
 INSERT INTO Tag VALUES('celebrity');
