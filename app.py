@@ -15,11 +15,14 @@ def discover_page():
     memes = db.session.query(models.Meme).all()
     return render_template('meme-pg.html',memes=memes)
 
-@app.route('/results')
-def match_results():
-    partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
+@app.route('/results/<userId>')
+def match_results(userId):
+    # partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
     # allusers = db.session.query(models.Users).all()
-    return render_template('match-results-pg.html', partners=partners)
+    memes = db.session.query(models.Meme).all()
+    
+    # return render_template('match-results-pg.html', partners=partners)
+    return render_template('match-results-pg.html', memes=memes)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -38,14 +41,18 @@ def login():
 
 @app.route('/profile/<userId>')
 def profile_page(userId):     
-    memes = db.session.query(models.Meme).all()
-    return render_template('profile-pg.html',memes=memes)
-
+    users = db.session.query(models.tagcount).filter_by(uid=userId) 
+    # tagcount
+    name = db.session.query(models.Users).filter_by(uid=userId)
+    # user
+    particularUser = users[0]
+    particularName = name[0]
+    return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
 
 @app.route('/memes', methods = ['GET', 'POST'])
-def landing_page():
-    global current
-    meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
+def landing_page(): 
+    global current 
+    meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
     
     if request.method == 'POST':
         #if request.form['submit'] == 'NO':
@@ -58,7 +65,7 @@ def landing_page():
         meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()'''
             
         if request.form['submit'] == 'YES':
-            opinion = models.Opinion(5, current, 1)
+            opinion = models.Opinion(8, current, 1)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
@@ -67,7 +74,7 @@ def landing_page():
             
             
         elif request.form['submit'] == 'NO':
-            opinion = models.Opinion(6, current, 0)
+            opinion = models.Opinion(8, current, 0)
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
