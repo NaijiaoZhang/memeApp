@@ -34,6 +34,12 @@
               background: transparent;
           }
 
+          .header {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            margin: 0 0 10px 10px;
+          }
+
          /* #bootstrap-overrides input[type=text]{
               background-color: #354AA7;
               color: white;
@@ -44,11 +50,11 @@
               color: white;
           }*/
 
-          .form {
+         /* .form {
               background-color: #354aa7;
               color: white;
               width: 500px;
-          }
+          }*/
     </style>
     
   </head>
@@ -56,11 +62,11 @@
   <div class="container">
       <!--make whitespace at bottom smaller-->
       <div class = "title">
-          <center><img src = "../static/media/design/textlogo.png" alt="MemeMatch header" width=875 height=150></center> 
+         <center><img src = "../static/media/design/textlogo2.png" alt="title image"></center>
       </div>
 
       <div class = "header">
-          <center><img src = "../static/media/design/loginheader.png" alt="MemeMatch header" width=875 height=450></center>
+          <center><img src = "../static/media/design/loginheader.png" alt="header image" width=1050 height=540></center>
       </div>
 
       <form action="" method="post">
@@ -71,7 +77,6 @@
         <center><input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}"></center>
 
         <!--<center><input class="btn btn-default" type="submit" value="Login"></center>-->
-
         <center><button type="submit" class=custombtn>
             <img src="../static/media/design/butt.png" alt="submit"/>
         </button></center>
@@ -80,5 +85,5 @@
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
-    </div> <!--/container -->
+    </div>
 </html>
