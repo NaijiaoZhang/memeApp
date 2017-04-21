@@ -21,11 +21,18 @@
 
     <link href="../static/css/template-styles.css" rel="stylesheet">
 
+    <link href="../static/css/login.css" rel="stylesheet">
+
+
      <!-- jQuery -->
     <script src="../static/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../static/js/bootstrap.min.js"></script>
+
+    <script src="../static/js/login.js"></script>
+
+
 
     <style>
           .custombtn {
@@ -44,21 +51,6 @@
             margin: 0 0 10px 10px;
           }
 
-         /* #bootstrap-overrides input[type=text]{
-              background-color: #354AA7;
-              color: white;
-          }
-
-          #bootstrap-overrides input[type=password]{
-              background-color: #354AA7;
-              color: white;
-          }*/
-
-         /* .form {
-              background-color: #354aa7;
-              color: white;
-              width: 500px;
-          }*/
     </style>
     
   </head>
@@ -69,33 +61,10 @@
          <center><img src = "../static/media/design/textlogo2.png" alt="title image"></center>
       </div>
 
-      <div class = "header">
+      <div class = "header" style="padding-top: 0px;padding-bottom: 0px;margin: 0 0 10px 10px;">
           <center><img src = "../static/media/design/loginheader.png" alt="header image" width=1050 height=540></center>
       </div>
 
-      <!--<form action="" method="post">
-        <center><input type="text" class="form" placeholder="Username" name="username" value="{{
-          request.form.username }}"></center>
-
-        <center><input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}"></center>
-
-     
-        <center><button type="submit" class=custombtn>
-            <img src="../static/media/design/butt.png" alt="submit"/>
-        </button></center>
-      </form>-->
-
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
-
-    <script src="../static/js/login.js"></script>
-
-    <link href="../static/css/login.css" rel="stylesheet">
-
-
-  <title>Meme App</title>
     <div class="container">
       <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -151,7 +120,7 @@
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
                         <!--<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">-->
-                        <center><button type="submit" class="custombtn">
+                        <center><button type="submit" class="custombtn" style="border: 0;  background:transparent;display: block;margin-left: auto;margin-right: auto;">
                             <img src="../static/media/design/registerbutton.png" alt="submit"/>
                          </button></center>
                       </div>
