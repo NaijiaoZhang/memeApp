@@ -41,17 +41,18 @@ def login():
 
 @app.route('/profile/<userId>')
 def profile_page(userId):     
-    users = db.session.query(models.tagcount).filter_by(uid=userId)
+    users = db.session.query(models.tagcount).filter_by(uid=userId) 
+    # tagcount
     name = db.session.query(models.Users).filter_by(uid=userId)
-    particularName = name[0]
+    # user
     particularUser = users[0]
+    particularName = name[0]
     return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
 
-
 @app.route('/memes', methods = ['GET', 'POST'])
-def landing_page():
-    global current
-    meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
+def landing_page(): 
+    global current 
+    meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
     
     if request.method == 'POST':
         #if request.form['submit'] == 'NO':
