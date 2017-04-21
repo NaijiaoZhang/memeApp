@@ -44,6 +44,24 @@ def login():
             error = 'Invalid Crendentials. Please try again.'
     return render_template('layout.html', error=error)
 
+@app.route('/<error>', methods=['GET', 'POST'])
+def loginerror(error):
+    if request.method == 'POST':
+        loweredName = request.form['username'].lower()
+        users = db.session.query(models.Users).filter_by(name=loweredName)
+        if(users.count()!=0):
+            particularUser = users[0]
+            session['name']=particularUser.name
+            password = users[0].password
+            if request.form['password'] != password:
+                error = 'Invalid Credentials. Please try again.'
+            else:
+                session['logged_in']=True
+                return redirect(url_for('profile_page',userId=particularUser.uid))
+        else: 
+            error = 'Invalid Crendentials. Please try again.'
+    return render_template('layout.html', error=error)    
+
 @app.route('/profile/<userId>')
 def profile_page(userId):     
     users = db.session.query(models.tagcount).filter_by(uid=userId) 
@@ -106,7 +124,13 @@ def registration():
                 db.session.add(newUser)
                 db.session.commit()
                 flash('+Record was successfully added')
-
+                return redirect(url_for('login'))
+            else:
+                error = 'Passwords do not match!'
+                return redirect(url_for('loginerror', error=error))
+        else: 
+            error = 'User already exists!'
+            return redirect(url_for('loginerror', error=error))
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
