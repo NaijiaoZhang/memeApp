@@ -26,19 +26,59 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../static/js/bootstrap.min.js"></script>
+
+    <style>
+          .custombtn {
+              background-color: "aaa";
+              border: 0; 
+              background: transparent;
+          }
+
+         /* #bootstrap-overrides input[type=text]{
+              background-color: #354AA7;
+              color: white;
+          }
+
+          #bootstrap-overrides input[type=password]{
+              background-color: #354AA7;
+              color: white;
+          }*/
+
+          .form {
+              background-color: #354aa7;
+              color: white;
+              width: 500px;
+          }
+    </style>
+    
   </head>
-  <title>Meme App</title>
+  <title>Meet people through memes</title>
   <div class="container">
+      <!--make whitespace at bottom smaller-->
+      <div class = "title">
+          <center><img src = "../static/media/design/textlogo.png" alt="MemeMatch header" width=875 height=150></center> 
+      </div>
+
+      <div class = "header">
+          <center><img src = "../static/media/design/loginheader.png" alt="MemeMatch header" width=875 height=450></center>
+      </div>
 
       <form action="" method="post">
-        <h2 class="form-signin-heading">Meme Dating App :)</h2>
-        <input type="text" class="form-control" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
+        <!--<h2 class="form-signin-heading">Meme Dating App :)</h2>-->
+        <center><input type="text" class="form" placeholder="Username" name="username" value="{{
+          request.form.username }}"></center>
+
+        <center><input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}"></center>
+
+        <!--<center><input class="btn btn-default" type="submit" value="Login"></center>-->
+
+        <center><button type="submit" class=custombtn>
+            <img src="../static/media/design/butt.png" alt="submit"/>
+        </button></center>
       </form>
+
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
-    </div> <!-- /container -->
+    </div> <!--/container -->
 </html>
