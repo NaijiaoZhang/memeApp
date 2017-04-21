@@ -25,11 +25,7 @@ def discover_page():
 def match_results(userId):
     currentUser = db.session.query(models.tagcount).filter_by(uid=userId)
     partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
-    
-    print "look here"
-    print currentUser[0].uid
-    print "fuck"
-    
+
     myDict = convertToDict(currentUser[0])
     myTagList = getRankedList(myDict)
     
@@ -132,16 +128,11 @@ def landing_page():
 @app.route('/registration' , methods=['POST'])
 def registration(): 
     if request.method == 'POST':
-        print request.form['username']
-        print request.form['password']
-        print request.form['confirm_password']
         loweredName = request.form['username'].lower()
         largestUid = db.session.query(db.func.max(models.Users.uid)).scalar()
         users = db.session.query(models.Users).filter_by(name=loweredName)
-        print "IM THE USER COUNT: "+str(users.count())
         if(users.count()==0):
             if(request.form['password']==request.form['confirm_password']):
-                print "testing: "+loweredName
                 newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),None,1)
                 db.session.add(newUser)
                 db.session.commit()
