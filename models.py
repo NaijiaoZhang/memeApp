@@ -7,6 +7,14 @@ class Users(db.Model):
     name = db.Column('name', db.String(256))
     password = db.Column('password', db.String(256))
     avatar = db.Column('avatar', db.String(256), nullable=True)
+    currentmeme = db.Column('currentmeme',db.Integer())
+
+    def __init__(self,uid, name, password,avatar, currentmeme):
+        self.uid = uid
+        self.name = name
+        self.password = password
+        self.avatar = avatar
+        self.currentmeme = currentmeme
 
 class Meme(db.Model):
     _tablename_ = 'meme'
@@ -50,7 +58,7 @@ class HasTag(db.Model):
 
 # I HAVE NO IDEA WHY BUT SOME RELATIONS NEED TO BE ALL LOWER CASE?????
 class tagcount(db.Model):
-    _tablename_ = "TagAmount"
+    _tablename_ = "TagCount"
     uid = db.Column('uid', db.Integer(), ForeignKey("users.uid"), primary_key=True)
     multipanel = db.Column('multipanel',db.Integer())
     celebrity = db.Column('celebrity',db.Integer())

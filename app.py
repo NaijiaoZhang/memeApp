@@ -89,6 +89,25 @@ def landing_page():
     
     return render_template('meme-pg-new.html', meme = meme)
 
+@app.route('/registration' , methods=['POST'])
+def registration(): 
+    if request.method == 'POST':
+        print request.form['username']
+        print request.form['password']
+        print request.form['confirm_password']
+        loweredName = request.form['username'].lower()
+        largestUid = db.session.query(db.func.max(models.Users.uid)).scalar()
+        users = db.session.query(models.Users).filter_by(name=loweredName)
+        print "IM THE USER COUNT: "+str(users.count())
+        if(users.count()==0):
+            if(request.form['password']==request.form['confirm_password']):
+                print "testing: "+loweredName
+                newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),None,1)
+                db.session.add(newUser)
+                db.session.commit()
+                flash('+Record was successfully added')
+
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
     app.run(host='0.0.0.0', port=port)
