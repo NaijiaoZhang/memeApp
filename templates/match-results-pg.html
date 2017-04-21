@@ -92,18 +92,17 @@
             <div class="col-lg-12">
                 <h2 class="page-header">Rankings</h2>
             </div>
-            {% block content %}
-            {% for buddy in partners %}
+
+            {% for uid in partners %}
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
                 <h3> 
-                    {{ buddy.partner }}
-                    <small>1</small>
+                    
+                    <small>{{uid}}</small>
                 </h3>
                 <p>I'm fun. </p>
             </div>
             {% endfor %}
-            {% endblock %}
         </div>
 
         <hr>

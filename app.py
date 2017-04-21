@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import models
 import forms
 import os
+from ranked import RBO, getRankedList, convertToDict
 
 app = Flask(__name__)
 app.secret_key = 's3cr3t'
@@ -20,10 +21,28 @@ def discover_page():
     memes = db.session.query(models.Meme).all()
     return render_template('meme-pg.html',memes=memes)
 
-@app.route('/results')
-def match_results():
-    partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-    return render_template('match-results-pg.html', partners=partners)
+@app.route('/results/<userId>')
+def match_results(userId):
+    currentUser = db.session.query(models.tagcount).filter_by(uid=userId)
+    partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
+    
+    print "look here"
+    print currentUser[0].uid
+    print "fuck"
+    
+    myDict = convertToDict(currentUser[0])
+    myTagList = getRankedList(myDict)
+    
+    potentialPartners = {}
+    for p in partners:
+        partnerDict = convertToDict(p)
+        pList = getRankedList(partnerDict)
+        potentialPartners[p.uid] = RBO(myTagList, pList)
+        
+    finalPartners = getRankedList(potentialPartners)    
+    
+    # return render_template('match-results-pg.html', partners=partners)
+    return render_template('match-results-pg.html', partners=finalPartners)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -74,6 +93,7 @@ def profile_page(userId):
 
 @app.route('/memes', methods = ['GET', 'POST'])
 def landing_page(): 
+    
     global current 
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
     
