@@ -87,7 +87,9 @@ def profile_page(userId):
     # tagcount
     name = db.session.query(models.Users).filter_by(uid=userId)
     # user
-    particularUser = users[0]
+    particularUser = None
+    if(users.count()!=0):
+        particularUser = users[0]
     particularName = name[0]
     return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
 
