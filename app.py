@@ -26,10 +26,6 @@ def match_results(userId):
     currentUser = db.session.query(models.tagcount).filter_by(uid=userId)
     partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
     
-    print "look here"
-    print currentUser[0].uid
-    print "fuck"
-    
     myDict = convertToDict(currentUser[0])
     myTagList = getRankedList(myDict)
     
@@ -93,8 +89,8 @@ def profile_page(userId):
     particularName = name[0]
     return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
 
-@app.route('/memes', methods = ['GET', 'POST'])
-def landing_page(): 
+@app.route('/memes/<userId>', methods = ['GET', 'POST'])
+def landing_page(userId): 
     
     global current 
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
@@ -110,20 +106,19 @@ def landing_page():
         meme = db.session.query(models.Meme).filter(models.Meme.memeid == 3).one()'''
             
         if request.form['submit'] == 'YES':
-            opinion = models.Opinion(8, current, 1)
+            opinion = models.Opinion(userId, current, 1) 
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
             current += 1
             meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
-            
-            
+            memeIndex = db.session.query(models.Meme).filter
+
         elif request.form['submit'] == 'NO':
-            opinion = models.Opinion(8, current, 0)
+            opinion = models.Opinion(userId, current, 0) 
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
-            
             current += 1
             meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()   
     
