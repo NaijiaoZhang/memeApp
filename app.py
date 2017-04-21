@@ -87,10 +87,10 @@ def profile_page(userId):
     if(users.count()!=0):
         particularUser = users[0]
     particularName = name[0]
-    return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName)
+    return render_template('profile-pg.html',particularUser=particularUser,particularName=particularName,userId=userId)
 
-@app.route('/memes', methods = ['GET', 'POST'])
-def landing_page(): 
+@app.route('/memes/<userId>', methods = ['GET', 'POST'])
+def landing_page(userId): 
     
     global current 
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
@@ -123,7 +123,7 @@ def landing_page():
             current += 1
             meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()   
     
-    return render_template('meme-pg-new.html', meme = meme)
+    return render_template('meme-pg-new.html', meme=meme,userId=userId)
 
 @app.route('/registration' , methods=['POST'])
 def registration(): 

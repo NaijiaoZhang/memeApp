@@ -39,8 +39,8 @@ CREATE TABLE Opinion
 (
 uid INTEGER NOT NULL REFERENCES Users(uid),
 memeID INTEGER NOT NULL REFERENCES Meme(memeID),
-preference INTEGER NOT NULL 
--- PRIMARY KEY(uid, memeID)
+preference INTEGER NOT NULL,
+PRIMARY KEY(uid, memeID)
 -- #0=neutral, 1=likes, -1=dislike
 );
 
