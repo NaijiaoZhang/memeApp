@@ -10,6 +10,11 @@ app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 current = 1
 
+@app.route('/logout')
+def logout(): 
+    session['logged_in']=False
+    return redirect(url_for('login'))
+
 @app.route('/discover')
 def discover_page():
     memes = db.session.query(models.Meme).all()
