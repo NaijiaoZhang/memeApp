@@ -37,7 +37,7 @@ def match_results(userId):
     finalPartners = getRankedList(potentialPartners)    
     
     # return render_template('match-results-pg.html', partners=partners)
-    return render_template('match-results-pg.html', partners=finalPartners)
+    return render_template('match-results-pg.html', partners=finalPartners, userId=userId)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
