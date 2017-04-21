@@ -18,22 +18,25 @@ def discover_page():
 @app.route('/results')
 def match_results():
     partners = db.session.query(models.potentialpartner).filter_by(uid=2).all()
-    # allusers = db.session.query(models.Users).all()
     return render_template('match-results-pg.html', partners=partners)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
-        users = db.session.query(models.Users).filter_by(name=request.form['username'])
-        particularUser = users[0]
-        session['name']=particularUser.name
-        password = users[0].password
-        if request.form['password'] != password:
-            error = 'Invalid Credentials. Please try again.'
-        else:
-            session['logged_in']=True
-            return redirect(url_for('profile_page',userId=particularUser.uid))
+        loweredName = request.form['username'].lower()
+        users = db.session.query(models.Users).filter_by(name=loweredName)
+        if(users.count()!=0):
+            particularUser = users[0]
+            session['name']=particularUser.name
+            password = users[0].password
+            if request.form['password'] != password:
+                error = 'Invalid Credentials. Please try again.'
+            else:
+                session['logged_in']=True
+                return redirect(url_for('profile_page',userId=particularUser.uid))
+        else: 
+            error = 'Invalid Crendentials. Please try again.'
     return render_template('layout.html', error=error)
 
 @app.route('/profile/<userId>')
