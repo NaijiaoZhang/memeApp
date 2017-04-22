@@ -52,8 +52,12 @@ class Opinion(db.Model):
 
 class HasTag(db.Model):
     _tablename_ = 'hastag'
-    memeid = db.Column('memeid', db.Integer(), ForeignKey("Meme.memeid"), primary_key=True)
-    tagName = db.Column('tagname', db.String(256), ForeignKey("Tag.name"), primary_key=True)
+    memeid = db.Column('memeid', db.Integer(), ForeignKey("meme.memeid"), primary_key=True)
+    tagName = db.Column('tagname', db.String(256), ForeignKey("tag.name"), primary_key=True)
+    
+    def __init__(self, memeid, tagname):
+        self.memeid = memeid
+        self.tagName = tagname
 
 
 # I HAVE NO IDEA WHY BUT SOME RELATIONS NEED TO BE ALL LOWER CASE?????
