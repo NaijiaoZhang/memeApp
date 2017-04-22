@@ -119,8 +119,8 @@ def landing_page(userId):
             db.session.commit()
             flash('+Record was successfully added')
             current += 1
-            meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()   
-    
+            meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one()
+            
     return render_template('meme-pg-new.html', meme=meme,userId=userId)
 
 @app.route('/registration' , methods=['POST'])

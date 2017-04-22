@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">MatchMemeker</a>
+                <a class="navbar-brand" href="/memes">MatchMemeker</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,7 +56,7 @@
                         <a href="/memes/{{userId}}">Discover</a>
                     </li>
                     <li>
-                        <a href="#">Your Matches</a>
+                        <a href="/results/{{userId}}">Your Matches</a>
                     </li>
                     <li>
                         <a href="/profile/{{userId}}">Your Profile</a>
@@ -95,7 +95,7 @@
 
             {% for uid in partners %}
             <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/propic2.jpg" height="300" width="300" alt="" >
+                <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
                 <h3> 
                     
                     <small>{{uid}}</small>
