@@ -95,14 +95,14 @@
                 <h2 class="page-header">Rankings</h2>
             </div>
 
-            {% for uid in partners %}
+            {% for partner in partners %}
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
                 <h3> 
                     
-                    <small>{{uid}}</small>
+                    <small>{{partner.title()}}</small>
                 </h3>
-                <p>I'm fun. </p>
+                <p>You're partner! </p>
             </div>
             {% endfor %}
         </div>
