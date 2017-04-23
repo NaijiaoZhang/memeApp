@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% if not session['logged_in'] %}
+<p>Please Log In!!</p>
+{% else %}
 <head>
 
     <meta charset="utf-8">
@@ -63,7 +65,7 @@ function pictureChange(){
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/discover/{{userId}}">Discover</a>
+                        <a href="/memes/{{userId}}">Discover</a>
                     </li>
                     <li>
                         <a href="/results/{{userId}}">Your Matches</a>
@@ -146,5 +148,5 @@ function pictureChange(){
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
+{% endif %}
 </html>
