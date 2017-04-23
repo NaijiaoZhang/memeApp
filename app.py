@@ -132,8 +132,8 @@ def landing_page(userId):
 def registration(): 
     if request.method == 'POST':
         loweredName = request.form['username'].lower()
-
         users = db.session.query(models.Users).filter_by(name=loweredName)
+        largestUid = db.session.query(db.func.max(models.Users.uid)).scalar()
         if(users.count()==0):
             if(request.form['password']==request.form['confirm_password']):
                 newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),None,1)
