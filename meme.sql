@@ -21,13 +21,6 @@ CREATE TABLE TAG
 name VARCHAR(256) NOT NULL PRIMARY KEY
 );
 
-CREATE TABLE IsFriend
-(
-uid INTEGER NOT NULL REFERENCES Users(uid),
-friend INTEGER NOT NULL REFERENCES Users(uid),
-PRIMARY KEY(uid,friend)
-);
-
 CREATE TABLE PotentialPartner
 (
 uid INTEGER NOT NULL REFERENCES Users(uid),
@@ -160,10 +153,6 @@ INSERT INTO Tag VALUES('gaming');
 INSERT INTO Tag VALUES('politics');
 INSERT INTO Tag VALUES('wholesome');
 INSERT INTO Tag VALUES('race');
-
-
-INSERT INTO isFriend VALUES(1, 3);
-INSERT INTO isFriend VALUES(2, 4);
 
 INSERT INTO PotentialPartner VALUES(1, 5);
 INSERT INTO PotentialPartner VALUES(2, 5);
