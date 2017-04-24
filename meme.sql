@@ -21,13 +21,6 @@ CREATE TABLE TAG
 name VARCHAR(256) NOT NULL PRIMARY KEY
 );
 
-CREATE TABLE PotentialPartner
-(
-uid INTEGER NOT NULL REFERENCES Users(uid),
-partner INTEGER NOT NULL REFERENCES Users(uid),
-PRIMARY KEY (uid, partner)
-);
-
 CREATE TABLE Opinion
 (
 uid INTEGER NOT NULL REFERENCES Users(uid),
@@ -153,12 +146,6 @@ INSERT INTO Tag VALUES('gaming');
 INSERT INTO Tag VALUES('politics');
 INSERT INTO Tag VALUES('wholesome');
 INSERT INTO Tag VALUES('race');
-
-INSERT INTO PotentialPartner VALUES(1, 5);
-INSERT INTO PotentialPartner VALUES(2, 5);
-INSERT INTO PotentialPartner VALUES(2, 3);
-INSERT INTO PotentialPartner VALUES(2, 4);
-INSERT INTO PotentialPartner VALUES(2, 6);
 
 INSERT INTO Meme VALUES(1, '10_seconds_later','../static/media/faces/10_seconds_later.jpg','10_seconds_later.jpg');
 INSERT INTO Meme VALUES(2, '10guy','../static/media/faces/10guy.jpg','10guy.jpg');
