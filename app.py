@@ -13,6 +13,7 @@ db = SQLAlchemy(app, session_options={'autocommit': False})
 current = 1
 numMemes = -1;
 
+
 @app.route('/logout')
 def logout(): 
     session['logged_in']=False
@@ -130,6 +131,8 @@ def landing_page(userId):
             
     return render_template('meme-pg-new.html', meme=meme,userId=userId)
 
+
+
 @app.route('/registration' , methods=['POST'])
 def registration(): 
     if request.method == 'POST':
@@ -149,6 +152,25 @@ def registration():
         else: 
             error = 'User already exists!'
             return redirect(url_for('loginerror', error=error))
+        
+        
+@app.route('/tags', methods = ['GET', 'POST'])
+def assign_tags(): 
+    global tagMeme
+    meme = db.session.query(models.Meme).filter(models.Meme.memeid == tagMeme).one() 
+    
+    if request.method == 'POST':
+        
+        selected = request.form.getlist('tag')
+        
+        for i in selected:
+            hastag = models.HasTag(tagMeme, i)
+            db.session.add(hastag)
+            db.session.commit()
+            
+        tagMeme += 1
+    
+    return render_template('tag-pg.html', meme = meme)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
