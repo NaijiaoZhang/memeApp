@@ -95,16 +95,24 @@
                 <h2 class="page-header">Rankings</h2>
             </div>
 
-            {% for partner in partners %}
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
-                <h3> 
-                    
-                    <small>{{partner.title()}}</small>
+            {% if partners!=None %}
+
+                {% for partner in partners %}
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
+                    <h3> 
+                        
+                        <small>{{partner.title()}}</small>
+                    </h3>
+                    <p>Your partner! </p>
+                </div>
+                {% endfor %}
+            {% endif %}
+            {% if partners==None %}
+                <h3>
+                    Go discover some meme first to get matches!
                 </h3>
-                <p>Your partner! </p>
-            </div>
-            {% endfor %}
+            {% endif %}
         </div>
 
         <hr>

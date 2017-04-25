@@ -26,23 +26,25 @@ def discover_page():
 @app.route('/results/<userId>')
 def match_results(userId):
     currentUser = db.session.query(models.tagcount).filter_by(uid=userId)
-    partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
-    myDict = convertToDict(currentUser[0])
-    myTagList = getRankedList(myDict)
-    
-    potentialPartners = {}
-    for p in partners:
-        partnerDict = convertToDict(p)
-        pList = getRankedList(partnerDict)
-        potentialPartners[p.uid] = RBO(myTagList, pList)
-        
-    finalPartners = getRankedList(potentialPartners)
-    nameList = []
-    for partner in finalPartners: 
-        user = db.session.query(models.Users).filter_by(uid=partner).one() 
-        name = user.name
-        nameList.append(name)
-    
+    nameList=None
+    if(currentUser.count()!=0):
+        partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
+        myDict = convertToDict(currentUser[0])
+        myTagList = getRankedList(myDict)
+           
+        potentialPartners = {}
+        for p in partners:
+            partnerDict = convertToDict(p)
+            pList = getRankedList(partnerDict)
+            potentialPartners[p.uid] = RBO(myTagList, pList)
+                
+        finalPartners = getRankedList(potentialPartners)
+        nameList = []
+        for partner in finalPartners: 
+            user = db.session.query(models.Users).filter_by(uid=partner).one() 
+            name = user.name
+            nameList.append(name)
+
     # return render_template('match-results-pg.html', partners=partners)
     return render_template('match-results-pg.html', partners=nameList, userId=userId)
 
