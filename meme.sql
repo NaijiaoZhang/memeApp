@@ -50,7 +50,6 @@ race INTEGER NOT NULL,
 total INTEGER NOT NULL
 );
 
-
 -- check if the memes exist in the database or not 
 CREATE FUNCTION Add_To_Opinion_Table() RETURNS TRIGGER AS $$
 BEGIN 
@@ -1015,8 +1014,6 @@ INSERT INTO Opinion VALUES(7,1,1);
 Select * from Users; 
 Select * from Meme; 
 Select * from Tag;
-Select * from IsFriend;
-Select * from PotentialPartner; 
 Select * from Opinion; 
 Select * from HasTag; 
 Select * from TagCount;
