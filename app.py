@@ -1,6 +1,7 @@
 from flask import Flask, flash, render_template, redirect, url_for, request, session
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
+import random
 import models
 import forms
 import os
@@ -10,9 +11,6 @@ app = Flask(__name__)
 app.secret_key = 's3cr3t'
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
-current = 1
-tagMeme = 1;
-
 
 @app.route('/logout')
 def logout(): 
@@ -109,10 +107,12 @@ def profile_page(userId):
 
 @app.route('/memes/<userId>', methods = ['GET', 'POST'])
 def landing_page(userId): 
-    global current
-    global numMemes
-    numMemes = db.session.query(db.func.max(models.Meme.memeid)).scalar()
-    randomMeme = randint(1,numMemes)
+    taggedMemes = db.session.query(models.hastag).all()
+    tagmemeID = []
+    for meme in taggedMemes:
+        tagmemeID.append(meme.memeid)
+    chooseFrom = list(set(tagmemeID))
+    randomMeme = random.choice(chooseFrom)
     current = randomMeme
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
 
@@ -154,9 +154,19 @@ def registration():
             return redirect(url_for('loginerror', error=error))
         
         
-@app.route('/tags', methods = ['GET', 'POST'])
+@app.route('/tags/<userId>', methods = ['GET', 'POST'])
 def assign_tags(): 
-    global tagMeme
+    taggedMemes = db.session.query(models.hastag).all()
+    everyMeme = db.session.query(models.Meme).all()
+    tagmemeID = []
+    everymemeID = []
+    for meme in taggedMemes:
+        tagmemeID.append(meme.memeid)
+    for meme in everyMeme: 
+        everymemeID.append(meme.memeid)
+    untaggedMemeID = list(set(everymemeID)-set(tagmemeID))
+    
+    tagMeme = random.choice(untaggedMemeID)
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == tagMeme).one() 
     
     if request.method == 'POST':
@@ -167,10 +177,8 @@ def assign_tags():
             hastag = models.hastag(tagMeme, i)
             db.session.add(hastag)
             db.session.commit()
-  
-        tagMeme += 1
-    
-    return render_template('tag-pg.html', meme = meme)
+      
+    return render_template('tag-pg.html', meme = meme,userId=userId)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
