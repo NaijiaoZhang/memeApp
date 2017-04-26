@@ -20,6 +20,9 @@
     <link href="../static/css/thumbnail-gallery.css" rel="stylesheet">
 
     <link href="../static/css/style.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="../static/css/half-slider.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,26 +46,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="/memes">MatchMemeker</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="./">Discover</a>
+                        <a href="/memes/{{userId}}">Discover</a>
                     </li>
                     <li>
-                        <a href="/results/{{particularName}}">Your Matches</a>
+                        <a href="/results/{{userId}}">Your Matches</a>
                     </li>
                     <li>
-                        <a href="/profile">Your Profile</a>
+                        <a href="/profile/{{userId}}">Your Profile</a>
                     </li>
-                    <ul class="nav navbar-nav" style="float:right;">
+                    <li>
+                        <a href="/display/{{userId}}">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/tags/{{userId}}">Tag Memes</a>
+                    </li>
+                </ul>
+                 <ul class="nav navbar-nav" style="float:right;">
                      <li>
                         <a href="/logout" class="confirmations">Log Out</a>
                     </li>
                     <script src="../static/js/confirmations.js"></script>
-                </ul>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -96,17 +105,6 @@
             </div> -->
             {% endfor %}
 
-            
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
         </div>
 
         <hr>
