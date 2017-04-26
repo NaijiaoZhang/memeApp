@@ -46,7 +46,6 @@ def match_results(userId):
             user = db.session.query(models.Users).filter_by(uid=partner).one() 
             partnerList.append(user)
 
-    # return render_template('match-results-pg.html', partners=partners)
     return render_template('match-results-pg.html', partners=partnerList, userId=userId)
 
 @app.route('/', methods=['GET', 'POST'])

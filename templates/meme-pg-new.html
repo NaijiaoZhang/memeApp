@@ -69,6 +69,10 @@
         position: relative;
         margin-top: 100px;
     }
+
+    a {
+        font-family: Aleo;
+    }
 </style>
 
 <script>
@@ -97,24 +101,24 @@ function pictureChange(){
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/memes/{{userId}}">Discover</a>
+                        <br><a href="/memes/{{userId}}">Discover</a>
                     </li>
                     <li>
-                        <a href="/results/{{userId}}">Your Matches</a>
+                        <br><a href="/results/{{userId}}">Your Matches</a>
                     </li>
                     <li>
-                        <a href="/profile/{{userId}}">Your Profile</a>
+                        <br><a href="/profile/{{userId}}">Your Profile</a>
                     </li>
                     <li>
-                        <a href="/display/{{userId}}">Gallery</a>
+                        <br><a href="/display/{{userId}}">Gallery</a>
                     </li>
                     <li>
-                        <a href="/tags/{{userId}}">Tag Memes</a>
+                        <br><a href="/tags/{{userId}}">Tag Memes</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav" style="float:right;">
                      <li>
-                        <a href="/logout" class="confirmations">Log Out</a>
+                        <br><a href="/logout" class="confirmations">Log Out</a>
                     </li>
                     <script src="../static/js/confirmations.js"></script>
                 </ul>
