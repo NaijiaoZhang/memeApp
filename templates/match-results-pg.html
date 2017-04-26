@@ -107,11 +107,11 @@
                     <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
                     <h3> 
                         <small>{{partners.index(partner)+1}}</small>
-                        <small>{{partner.name.title()}}</small>
-                    </h3>
-                     {% if partner.facebookLink != None %}
-                        <a href="{{partner.facebookLink}}">Facebook</a>
+                        {% if partner.facebookLink != None %}
+                        <a href="{{partner.facebookLink}}">{{partner.name.title()}}</a>
                      {% endif %}
+                    </h3>
+                     
                 </div>
                 {% endfor %}
             {% endif %}
