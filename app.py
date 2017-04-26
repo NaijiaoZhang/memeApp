@@ -17,10 +17,10 @@ def logout():
     session['logged_in']=False
     return redirect(url_for('login'))
 
-@app.route('/discover')
-def discover_page():
+@app.route('/display/<userId>')
+def discover_page(userId):
     memes = db.session.query(models.Meme).all()
-    return render_template('meme-pg.html',memes=memes)
+    return render_template('meme-pg.html',memes=memes, userId=userId)
 
 @app.route('/results/<userId>')
 def match_results(userId):
