@@ -20,22 +20,61 @@
     <!-- Custom CSS -->
     <link href="../static/css/4-col-portfolio.css" rel="stylesheet">
 </head>
-    
-<script>
-/**
-{% for meme in memes %}
-    {% if meme.memeid == 1 %}
-        function pictureChange(){
-            document.getElementById('theImage').src={{meme.filepath}};
-        }
-    {% endif %}
-{% endfor %}
-*/
 
+<style>
+    @font-face {
+        font-family: Aleo_Light;
+        src: url('../static/fonts/aleo/Aleo-Light.otf');
+        font-weight: lighter;
+    }
+
+    @font-face {
+        font-family: Aleo;
+        src: url('../static/fonts/aleo/Aleo-Regular.otf');
+        font-weight: bold;
+    }
+
+    @font-face {
+        font-family: Aleo_Bold;
+        src: url('../static/fonts/aleo/Aleo-Bold.otf');
+        font-weight: bolder;
+    }
+
+    img.img-responsive {
+        display: wrap;
+        margin-left: 0px;
+        position: relative;
+        width: 800px;           /*account for 75% aspect ratio*/
+        height: 550px;
+    }
+
+    .btn-circle1 {
+        background-color: #5271ff;
+        border-color: #5271ff;
+        border-radius: 60px;
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .btn-circle2 {
+        background-color: #44d9e6;
+        border-color: #44d9e6;
+        border-radius: 60px;
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        position: relative;
+        margin-top: 100px;
+    }
+</style>
+
+<script>
 function pictureChange(){
     document.getElementById('theImage').src="../static/media/faces/alien.jpg";
 }
-
 </script>
     
 <body>
@@ -79,9 +118,7 @@ function pictureChange(){
                     <script src="../static/js/confirmations.js"></script>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
@@ -99,7 +136,6 @@ function pictureChange(){
                 <br>
             </div>
         </div>
-        <!-- /.row -->
 
         <!-- Projects Row -->
         <div class="row">
@@ -111,7 +147,7 @@ function pictureChange(){
                 <br>
                 <br>
                 <form action="{{ request.path }}" method="post">
-                    <input type="submit" name="submit" class="btn btn-warning btn-circle btn-xl center no" value="&#x2717" style="background-image: '../static/media/design/yes.png""/>
+                    <input type="submit" name="submit" class="btn btn-warning btn-circle1 btn-xl center no" value="&#x2717"/>
                     </input>
                 </form>
             </div>
@@ -127,25 +163,21 @@ function pictureChange(){
                 <br>
                 <br>
                 <form action="{{ request.path }}" method="post">
-                    <input type="submit" name="submit" class="btn btn-danger btn-circle btn-xl center yes" value="&#10004"/>
+                    <input type="submit" name="submit" class="btn btn-danger btn-circle2 btn-xl center yes" value="&#10004"/>
                 </form>   
             </div>
         </div>
-        <!-- /.row -->
 
-       
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                     <p>Copyright &copy; Memers</p>
-                </div>
+                </div> -->
             </div>
-            <!-- /.row -->
         </footer>
 
     </div>
-    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
