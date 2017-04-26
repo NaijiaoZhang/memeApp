@@ -13,7 +13,7 @@ class Users(db.Model):
         self.uid = uid
         self.name = name
         self.password = password
-        self.facebooklink = facebookLink
+        self.facebookLink = facebookLink
         self.currentmeme = currentmeme
 
 class Meme(db.Model):

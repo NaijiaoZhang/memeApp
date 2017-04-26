@@ -27,6 +27,8 @@ def discover_page(userId):
 def match_results(userId):
     currentUser = db.session.query(models.tagcount).filter_by(uid=userId)
     nameList=None
+    partnerList = []
+    
     if(currentUser.count()!=0):
         partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
         myDict = convertToDict(currentUser[0])
@@ -39,7 +41,7 @@ def match_results(userId):
             potentialPartners[p.uid] = RBO(myTagList, pList)
                 
         finalPartners = getRankedList(potentialPartners)
-        partnerList = []
+        
         for partner in finalPartners: 
             user = db.session.query(models.Users).filter_by(uid=partner).one() 
             partnerList.append(user)
