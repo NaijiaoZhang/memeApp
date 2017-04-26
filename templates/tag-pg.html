@@ -17,7 +17,6 @@
 
     <!-- Custom CSS -->
     <link href="../static/css/4-col-portfolio.css" rel="stylesheet">
-</head>
 
 <style>
     @font-face {
@@ -64,14 +63,34 @@
         font-family: Aleo;
     }
 </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
+</head>
+    
 <script>
+/**
+{% for meme in memes %}
+    {% if meme.memeid == 1 %}
+        function pictureChange(){
+            document.getElementById('theImage').src={{meme.filepath}};
+        }
+    {% endif %}
+{% endfor %}
+*/
+
 function pictureChange(){
     document.getElementById('theImage').src="../static/media/faces/alien.jpg";
 }
+
 </script>
     
 <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -112,11 +131,14 @@ function pictureChange(){
                     <script src="../static/js/confirmations.js"></script>
                 </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
-    <div class="container2">
+    <div class="container">
+
         <!-- Page Heading -->
         <div class="row text-center">
             <div class="col-lg-12">
@@ -126,24 +148,27 @@ function pictureChange(){
                 <br>
             </div>
         </div>
+        <!-- /.row -->
 
         <!-- Projects Row -->
+
+            
         <div class="col-md-6 portfolio-item">
             <a href="#">
-                <img id="theImage" class="img-responsive" src={{meme.filepath}} alt="curr_img">
+                <img id="theImage" class="img-responsive" src={{meme.filepath}} alt="">
             </a>
         </div>
-
+            
+        <!-- /.row -->      
         <form action="{{ request.path }}" method="post">
-            <h1>Tag this meme: </h1> <br>
-            <input type="checkbox" name="tag" value="multi-panel"> MultiPanel<br><br>
-            <input type="checkbox" name="tag" value="celebrity"> Celebrity<br><br>
-            <input type="checkbox" name="tag" value="single-image"> SingleImage<br><br>
-            <input type="checkbox" name="tag" value="anime"> Anime<br><br>
-            <input type="checkbox" name="tag" value="gaming"> Gaming<br><br>
-            <input type="checkbox" name="tag" value="politics"> Politics<br><br>
-            <input type="checkbox" name="tag" value="wholesome"> Wholesome<br><br>
-            <input type="checkbox" name="tag" value="race"> Race<br><br>
+            <input type="checkbox" name="tag" value="multi-panel">MultiPanel<br>
+            <input type="checkbox" name="tag" value="celebrity">Celebrity<br>
+            <input type="checkbox" name="tag" value="single-image">SingleImage<br>
+            <input type="checkbox" name="tag" value="anime">Anime<br>
+            <input type="checkbox" name="tag" value="gaming">Gaming<br>
+            <input type="checkbox" name="tag" value="politics">Politics<br>
+            <input type="checkbox" name="tag" value="wholesome">Wholesome<br>
+            <input type="checkbox" name="tag" value="race">Race<br>
             <p></p>
             <input type="submit" value="submit">
         </form>
@@ -151,12 +176,15 @@ function pictureChange(){
         <!-- Footer -->
         <footer>
             <div class="row">
-           <!--      <div class="col-lg-12">
+                <div class="col-lg-12">
                     <p>Copyright &copy; Memers</p>
-                </div> -->
+                </div>
             </div>
+            <!-- /.row -->
         </footer>
+
     </div>
+    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
