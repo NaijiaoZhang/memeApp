@@ -50,7 +50,7 @@ class Opinion(db.Model):
         self.memeid = memeid
         self.preference = preference
 
-class HasTag(db.Model):
+class hastag(db.Model):
     _tablename_ = 'hastag'
     memeid = db.Column('memeid', db.Integer(), ForeignKey("meme.memeid"), primary_key=True)
     tagName = db.Column('tagname', db.String(256), ForeignKey("tag.name"), primary_key=True)

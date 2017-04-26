@@ -11,7 +11,7 @@ app.secret_key = 's3cr3t'
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 current = 1
-numMemes = -1;
+tagMeme = 1;
 
 
 @app.route('/logout')
@@ -164,9 +164,14 @@ def assign_tags():
         selected = request.form.getlist('tag')
         
         for i in selected:
-            hastag = models.HasTag(tagMeme, i)
+#            opinion = models.Opinion(2, current, 0) 
+#            db.session.add(opinion)
+#            db.session.commit()
+            hastag = models.hastag(tagMeme, i)
             db.session.add(hastag)
             db.session.commit()
+
+            
             
         tagMeme += 1
     
