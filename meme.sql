@@ -130,6 +130,10 @@ CREATE TRIGGER Add_To_Tag_Table
 -- #hand-populated small dataset
 
 INSERT INTO Users VALUES(1,'joyce','admin', 'https://www.facebook.com/joyce.choi.948', 1);
+INSERT INTO Users VALUES(2,'naijiao','admin', 'https://www.facebook.com/nijel.zhang', 1);
+INSERT INTO Users VALUES(3,'fangge','admin', 'https://www.facebook.com/fanggedeng ', 1);
+INSERT INTO Users VALUES(4,'molly','admin', 'https://www.facebook.com/mollymolichen ', 1);
+INSERT INTO Users VALUES(5,'meilin','admin', 'https://www.facebook.com/profile.php?id=100002701554393', 1);
 -- INSERT INTO Users VALUES(2,'jerry','admin',NULL, 1);
 -- INSERT INTO Users VALUES(3,'mom','admin',NULL, 1);
 -- INSERT INTO Users VALUES(4,'dad','admin',NULL, 1);
@@ -166,10 +170,6 @@ INSERT INTO HasTag VALUES(3, 'celebrity');
 INSERT INTO HasTag VALUES(4, 'anime');
 INSERT INTO HasTag VALUES(5, 'politics');
 INSERT INTO HasTag VALUES(6, 'race');
-
-
-INSERT INTO Opinion VALUES(8,1,1);
-INSERT INTO Opinion VALUES(7,1,1);
 
 INSERT INTO Meme VALUES(10, '3_days_later','../static/media/faces/3_days_later.jpg','3_days_later.jpg');
 INSERT INTO Meme VALUES(11, '3_days_later_2','../static/media/faces/3_days_later_2.jpg','3_days_later_2.jpg');
