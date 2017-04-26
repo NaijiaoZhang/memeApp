@@ -3,7 +3,7 @@ CREATE TABLE Users
 uid INTEGER NOT NULL PRIMARY KEY,
 name VARCHAR(256) NOT NULL,
 password VARCHAR(256) NOT NULL,
-avatar VARCHAR(256),
+facebookLink VARCHAR(256),
 currentMeme INTEGER NOT NULL
 -- CHECK(LEN(password)>10)
 );
@@ -49,6 +49,9 @@ wholesome INTEGER NOT NULL,
 race INTEGER NOT NULL,
 total INTEGER NOT NULL
 );
+
+CREATE UNIQUE INDEX indexOnMeme
+on Meme (memeID);
 
 -- check if the memes exist in the database or not 
 CREATE FUNCTION Add_To_Opinion_Table() RETURNS TRIGGER AS $$
@@ -126,7 +129,7 @@ CREATE TRIGGER Add_To_Tag_Table
 
 -- #hand-populated small dataset
 
-INSERT INTO Users VALUES(1,'joyce','admin',NULL, 1);
+INSERT INTO Users VALUES(1,'joyce','admin', 'https://www.facebook.com/joyce.choi.948', 1);
 INSERT INTO Users VALUES(2,'jerry','admin',NULL, 1);
 INSERT INTO Users VALUES(3,'mom','admin',NULL, 1);
 INSERT INTO Users VALUES(4,'dad','admin',NULL, 1);
