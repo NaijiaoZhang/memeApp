@@ -107,9 +107,11 @@
                     <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
                     <h3> 
                         <small>{{partners.index(partner)+1}}</small>
-                        <small>{{partner.title()}}</small>
+                        <small>{{partner.name}}</small>
                     </h3>
-                    <p>{{partner.facebookLink()}}</p>
+                    {% if partner.facebookLink != None %}
+                    <a href="{{partner.facebookLink}}">Facebook</a>
+                    {% endif %}
                 </div>
                 {% endfor %}
             {% endif %}
@@ -126,7 +128,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Memers</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

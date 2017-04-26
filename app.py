@@ -39,14 +39,13 @@ def match_results(userId):
             potentialPartners[p.uid] = RBO(myTagList, pList)
                 
         finalPartners = getRankedList(potentialPartners)
-        nameList = []
+        partnerList = []
         for partner in finalPartners: 
             user = db.session.query(models.Users).filter_by(uid=partner).one() 
-            name = user.name
-            nameList.append(name)
+            partnerList.append(user)
 
     # return render_template('match-results-pg.html', partners=partners)
-    return render_template('match-results-pg.html', partners=nameList, userId=userId)
+    return render_template('match-results-pg.html', partners=partnerList, userId=userId)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
