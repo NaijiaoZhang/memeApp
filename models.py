@@ -6,7 +6,7 @@ class Users(db.Model):
     uid = db.Column('uid', db.Integer(), primary_key=True)
     name = db.Column('name', db.String(256))
     password = db.Column('password', db.String(256))
-    avatar = db.Column('avatar', db.String(256), nullable=True)
+    facebookLink = db.Column('facebookLink', db.String(256), nullable=True)
     currentmeme = db.Column('currentmeme',db.Integer())
 
     def __init__(self,uid, name, password,avatar, currentmeme):

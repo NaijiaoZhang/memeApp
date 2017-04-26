@@ -144,7 +144,7 @@ def registration():
         largestUid = db.session.query(db.func.max(models.Users.uid)).scalar()
         if(users.count()==0):
             if(request.form['password']==request.form['confirm_password']):
-                newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),None,1)
+                newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),str(request.form['fblink']),1)
                 db.session.add(newUser)
                 db.session.commit()
                 flash('+Record was successfully added')
