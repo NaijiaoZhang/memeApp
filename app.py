@@ -164,15 +164,10 @@ def assign_tags():
         selected = request.form.getlist('tag')
         
         for i in selected:
-#            opinion = models.Opinion(2, current, 0) 
-#            db.session.add(opinion)
-#            db.session.commit()
             hastag = models.hastag(tagMeme, i)
             db.session.add(hastag)
             db.session.commit()
-
-            
-            
+  
         tagMeme += 1
     
     return render_template('tag-pg.html', meme = meme)
