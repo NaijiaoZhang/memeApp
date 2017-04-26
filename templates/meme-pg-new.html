@@ -19,14 +19,6 @@
 
     <!-- Custom CSS -->
     <link href="../static/css/4-col-portfolio.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
     
 <script>
@@ -92,8 +84,11 @@ function pictureChange(){
         <!-- Page Heading -->
         <div class="row text-center">
             <div class="col-lg-12">
-                <h1 class="page-header">MatchMemeker</h1>
-                <h3>Choose the memes you like and we'll match you with people who have the same preferences!</h3>
+                <!--<h1 class="page-header">MatchMemeker</h1>-->
+                <div class = "title">
+                    <center><img src = "../static/media/design/discover.png" alt="title image"></center>
+                </div>
+                <!--<h3>Choose the memes you like and we'll match you with people who have the same preferences!</h3>-->
                 <br>
                 <br>
             </div>
@@ -102,28 +97,33 @@ function pictureChange(){
 
         <!-- Projects Row -->
         <div class="row">
-            
+            <br>
+            <br>
+
             <div class="col-md-3">
+                <br>
+                <br>
+                <br>
                 <form action="{{ request.path }}" method="post">
-                    <input type="submit" name="submit" class="btn btn-warning btn-circle btn-xl center" value="NO"/>
-                    <!--<button type="button" onclick="pictureChange()" class="btn btn-warning btn-circle btn-xl center"><i class="glyphicon glyphicon-remove"></i></button>-->
+                    <input type="submit" name="submit" class="btn btn-warning btn-circle btn-xl center no" value="&#x2717" style="background-image: '../static/media/design/yes.png""/>
+                    </input>
                 </form>
             </div>
             
             <div class="col-md-6 portfolio-item">
                 <a href="#">
-                    <img id="theImage" class="img-responsive" src={{meme.filepath}} alt="">
+                    <center><img id="theImage" class="img-responsive" src={{meme.filepath}} alt=""></center>
                 </a>
             </div>
             
             <div class="col-md-3">
+                <br>
+                <br>
+                <br>
                 <form action="{{ request.path }}" method="post">
-                    <input type="submit" name="submit" class="btn btn-danger btn-circle btn-xl center" value="YES"/>
-                    <!--<button type="button" onclick="pictureChange()" class="btn btn-danger btn-circle btn-xl center"><i class="glyphicon glyphicon-heart"></i></button>-->
+                    <input type="submit" name="submit" class="btn btn-danger btn-circle btn-xl center yes" value="&#10004"/>
                 </form>   
             </div>
-    
-            
         </div>
         <!-- /.row -->
 
@@ -131,9 +131,9 @@ function pictureChange(){
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+               <!--  <div class="col-lg-12">
                     <p>Copyright &copy; Your Website 2014</p>
-                </div>
+                </div> -->
             </div>
             <!-- /.row -->
         </footer>
