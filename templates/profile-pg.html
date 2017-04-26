@@ -106,9 +106,7 @@
                     <script src="../static/js/confirmations.js"></script>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
     <!-- Half Page Image Background Carousel Header -->
@@ -125,21 +123,18 @@
                 <!-- Set the first background image using inline CSS below. -->
                 <div class="fill" style="background-image:url({{picOne}});"></div>
                 <div class="carousel-caption">
-                    <!--<h2>Caption 1</h2>-->
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <div class="fill" style="background-image:url({{picTwo}});"></div>
                 <div class="carousel-caption">
-                    <!--<h2>Caption 2</h2>-->
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <div class="fill" style="background-image:url({{picThree}});"></div>
                 <div class="carousel-caption">
-                    <!--<h2>Caption 3</h2>-->
                 </div>
             </div>
         </div>
@@ -165,18 +160,9 @@
 
             <script src="../static/js/radarChart.js"></script>   
             <script>
-                ////////////////////////////////////////////////////////////// 
-                //////////////////////// Set-Up ////////////////////////////// 
-                ////////////////////////////////////////////////////////////// 
-
-
                 var margin = {top: 100, right: 100, bottom: 100, left: 100},
                     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
                     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-                        
-                ////////////////////////////////////////////////////////////// 
-                ////////////////////////// Data ////////////////////////////// 
-                ////////////////////////////////////////////////////////////// 
 
                 var data = [
                           [//iPhone
@@ -190,9 +176,6 @@
                             {axis:"Race",value:"{{particularUser.race/particularUser.total}}"}          
                           ]
                         ];
-                ////////////////////////////////////////////////////////////// 
-                //////////////////// Draw the Chart ////////////////////////// 
-                ////////////////////////////////////////////////////////////// 
 
                 var color = d3.scale.ordinal()
                     .range(["#EDC951"]);
@@ -206,20 +189,16 @@
                   roundStrokes: true,
                   color: color
                 };
-                //Call function to draw the Radar chart
+                
                 RadarChart(".radarChart", data, radarChartOptions);
             </script>
             {% endif %}
             <div class="subheading" align = "center">
             <!--pull location/school from DB-->
-                <!--<h3>Duke University</h3>-->
-
             </div>
-
             <!--pull bio from DB-->
             <br> 
         </div>
-
         <hr>
 
         <!-- Footer -->
@@ -232,7 +211,6 @@
         </footer>
 
     </div>
-    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="../static/js/jquery.js"></script>
