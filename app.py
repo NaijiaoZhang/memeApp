@@ -1,10 +1,13 @@
 from flask import Flask, flash, render_template, redirect, url_for, request, session
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
+from flask import redirect
 import models
 import forms
 import os
 from ranked import RBO, getRankedList, convertToDict
+
+PER_PAGE = 20
 
 app = Flask(__name__)
 app.secret_key = 's3cr3t'
