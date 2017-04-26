@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.secret_key = 's3cr3t'
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
+toStoreID = -1
 
 @app.route('/logout')
 def logout(): 
@@ -112,6 +113,8 @@ def landing_page(userId):
     for meme in taggedMemes:
         tagmemeID.append(meme.memeid)
     chooseFrom = list(set(tagmemeID))
+    for id in chooseFrom: 
+        print "asd;klfjsadfksj: "+str(id)
     randomMeme = random.choice(chooseFrom)
     current = randomMeme
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
@@ -155,7 +158,8 @@ def registration():
         
         
 @app.route('/tags/<userId>', methods = ['GET', 'POST'])
-def assign_tags(): 
+def assign_tags(userId): 
+    global toStoreID
     taggedMemes = db.session.query(models.hastag).all()
     everyMeme = db.session.query(models.Meme).all()
     tagmemeID = []
@@ -167,16 +171,17 @@ def assign_tags():
     untaggedMemeID = list(set(everymemeID)-set(tagmemeID))
     
     tagMeme = random.choice(untaggedMemeID)
+    if toStoreID == -1: 
+        toStoreID=tagMeme
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == tagMeme).one() 
     
     if request.method == 'POST':
-        
         selected = request.form.getlist('tag')
-        
         for i in selected:
-            hastag = models.hastag(tagMeme, i)
+            hastag = models.hastag(toStoreID, i)
             db.session.add(hastag)
             db.session.commit()
+        toStoreID = tagMeme 
       
     return render_template('tag-pg.html', meme = meme,userId=userId)
 
