@@ -130,15 +130,15 @@ CREATE TRIGGER Add_To_Tag_Table
 -- #hand-populated small dataset
 
 INSERT INTO Users VALUES(1,'joyce','admin', 'https://www.facebook.com/joyce.choi.948', 1);
-INSERT INTO Users VALUES(2,'jerry','admin',NULL, 1);
-INSERT INTO Users VALUES(3,'mom','admin',NULL, 1);
-INSERT INTO Users VALUES(4,'dad','admin',NULL, 1);
-INSERT INTO Users VALUES(5,'jessica','admin',NULL, 1);
-INSERT INTO Users VALUES(6, 'molly','admin',NULL, 1);
-INSERT INTO Users VALUES(7, 'fangge','admin',NULL, 1);
-INSERT INTO Users VALUES(8, 'naijiao','admin',NULL, 1);
-INSERT INTO Users VALUES(9, 'joyce Choi','admin',NULL, 1);
-INSERT INTO Users VALUES(10, 'nana','admin',NULL, 1);
+-- INSERT INTO Users VALUES(2,'jerry','admin',NULL, 1);
+-- INSERT INTO Users VALUES(3,'mom','admin',NULL, 1);
+-- INSERT INTO Users VALUES(4,'dad','admin',NULL, 1);
+-- INSERT INTO Users VALUES(5,'jessica','admin',NULL, 1);
+-- INSERT INTO Users VALUES(6, 'molly','admin',NULL, 1);
+-- INSERT INTO Users VALUES(7, 'fangge','admin',NULL, 1);
+-- INSERT INTO Users VALUES(8, 'naijiao','admin',NULL, 1);
+-- INSERT INTO Users VALUES(9, 'joyce Choi','admin',NULL, 1);
+-- INSERT INTO Users VALUES(10, 'nana','admin',NULL, 1);
 
 INSERT INTO Tag VALUES('multi-panel');
 INSERT INTO Tag VALUES('celebrity');
