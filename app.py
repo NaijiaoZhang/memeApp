@@ -1,6 +1,7 @@
 from flask import Flask, flash, render_template, redirect, url_for, request, session
 from flask_sqlalchemy import SQLAlchemy
 from random import randint
+import random
 import models
 import forms
 import os
@@ -10,24 +11,24 @@ app = Flask(__name__)
 app.secret_key = 's3cr3t'
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
-current = 1
-tagMeme = 1;
-
+toStoreID = -1
 
 @app.route('/logout')
 def logout(): 
     session['logged_in']=False
     return redirect(url_for('login'))
 
-@app.route('/discover')
-def discover_page():
+@app.route('/display/<userId>')
+def discover_page(userId):
     memes = db.session.query(models.Meme).all()
-    return render_template('meme-pg.html',memes=memes)
+    return render_template('meme-pg.html',memes=memes, userId=userId)
 
 @app.route('/results/<userId>')
 def match_results(userId):
     currentUser = db.session.query(models.tagcount).filter_by(uid=userId)
     nameList=None
+    partnerList = []
+    
     if(currentUser.count()!=0):
         partners = db.session.query(models.tagcount).filter(models.tagcount.uid != userId).all()
         myDict = convertToDict(currentUser[0])
@@ -40,14 +41,13 @@ def match_results(userId):
             potentialPartners[p.uid] = RBO(myTagList, pList)
                 
         finalPartners = getRankedList(potentialPartners)
-        nameList = []
+        
         for partner in finalPartners: 
             user = db.session.query(models.Users).filter_by(uid=partner).one() 
-            name = user.name
-            nameList.append(name)
+            partnerList.append(user)
 
     # return render_template('match-results-pg.html', partners=partners)
-    return render_template('match-results-pg.html', partners=nameList, userId=userId)
+    return render_template('match-results-pg.html', partners=partnerList, userId=userId)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -109,10 +109,14 @@ def profile_page(userId):
 
 @app.route('/memes/<userId>', methods = ['GET', 'POST'])
 def landing_page(userId): 
-    global current
-    global numMemes
-    numMemes = db.session.query(db.func.max(models.Meme.memeid)).scalar()
-    randomMeme = randint(1,numMemes)
+    taggedMemes = db.session.query(models.hastag).all()
+    tagmemeID = []
+    for meme in taggedMemes:
+        tagmemeID.append(meme.memeid)
+    chooseFrom = list(set(tagmemeID))
+    for id in chooseFrom: 
+        print "asd;klfjsadfksj: "+str(id)
+    randomMeme = random.choice(chooseFrom)
     current = randomMeme
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
 
@@ -141,7 +145,7 @@ def registration():
         largestUid = db.session.query(db.func.max(models.Users.uid)).scalar()
         if(users.count()==0):
             if(request.form['password']==request.form['confirm_password']):
-                newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),None,1)
+                newUser = models.Users(largestUid+1,str(loweredName),str(request.form['password']),str(request.form['fblink']),1)
                 db.session.add(newUser)
                 db.session.commit()
                 flash('+Record was successfully added')
@@ -154,23 +158,33 @@ def registration():
             return redirect(url_for('loginerror', error=error))
         
         
-@app.route('/tags', methods = ['GET', 'POST'])
-def assign_tags(): 
-    global tagMeme
+@app.route('/tags/<userId>', methods = ['GET', 'POST'])
+def assign_tags(userId): 
+    global toStoreID
+    taggedMemes = db.session.query(models.hastag).all()
+    everyMeme = db.session.query(models.Meme).all()
+    tagmemeID = []
+    everymemeID = []
+    for meme in taggedMemes:
+        tagmemeID.append(meme.memeid)
+    for meme in everyMeme: 
+        everymemeID.append(meme.memeid)
+    untaggedMemeID = list(set(everymemeID)-set(tagmemeID))
+    
+    tagMeme = random.choice(untaggedMemeID)
+    if toStoreID == -1: 
+        toStoreID=tagMeme
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == tagMeme).one() 
     
     if request.method == 'POST':
-        
         selected = request.form.getlist('tag')
-        
         for i in selected:
-            hastag = models.hastag(tagMeme, i)
+            hastag = models.hastag(toStoreID, i)
             db.session.add(hastag)
             db.session.commit()
-  
-        tagMeme += 1
-    
-    return render_template('tag-pg.html', meme = meme)
+        toStoreID = tagMeme 
+      
+    return render_template('tag-pg.html', meme = meme,userId=userId)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",5000))
