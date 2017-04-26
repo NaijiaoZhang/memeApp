@@ -49,13 +49,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="./">Discover</a>
+                        <a href="/memes/{{userId}}">Discover</a>
                     </li>
                     <li>
-                        <a href="/results/{{particularName}}">Your Matches</a>
+                        <a href="/results/{{userId}}">Your Matches</a>
                     </li>
                     <li>
-                        <a href="/profile">Your Profile</a>
+                        <a href="/profile/{{userId}}">Your Profile</a>
+                    </li>
+                    <li>
+                        <a href="./">Gallery</a>
                     </li>
                     <ul class="nav navbar-nav" style="float:right;">
                      <li>
@@ -96,17 +99,6 @@
             </div> -->
             {% endfor %}
 
-            
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                </a>
-            </div>
         </div>
 
         <hr>
