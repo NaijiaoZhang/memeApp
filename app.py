@@ -113,20 +113,19 @@ def landing_page(userId):
     for meme in taggedMemes:
         tagmemeID.append(meme.memeid)
     chooseFrom = list(set(tagmemeID))
-    for id in chooseFrom: 
-        print "asd;klfjsadfksj: "+str(id)
+
     randomMeme = random.choice(chooseFrom)
     current = randomMeme
     meme = db.session.query(models.Meme).filter(models.Meme.memeid == current).one() 
 
-    if request.method == 'POST':            
-        if request.form['submit'] == 'YES':
+    if request.method == 'POST':      
+        if request.form['submit'] == "yes":
             opinion = models.Opinion(userId, current, 1) 
             db.session.add(opinion)
             db.session.commit()
             flash('+Record was successfully added')
 
-        elif request.form['submit'] == 'NO':
+        elif request.form['submit'] == "no":
             opinion = models.Opinion(userId, current, 0) 
             db.session.add(opinion)
             db.session.commit()
