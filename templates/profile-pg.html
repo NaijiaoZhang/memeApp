@@ -14,8 +14,8 @@
     <title>Your Profile</title>
 
     <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>    
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>    
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>-->
     <!-- D3.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
         
@@ -53,7 +53,9 @@
         }
 
         h1 {
-            font-family: Aleo-Bold;
+            /*font-family: Aleo-Bold;*/
+            font-weight: bold;
+            font-family: Aleo;
         }
 
         a {
@@ -75,7 +77,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!--<a class="navbar-brand" href="/memes">MatchMemeker</a>-->
-                <img src="../static/media/design/textlogosmall.png" href="/memes"/>
+                <left><img src="../static/media/design/textlogosmallwhite.png" href="/memes"/></left>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -98,6 +100,7 @@
                         <a href="/display/{{userId}}">Gallery</a>
                     </li>
                     <li>
+                        <br>
                         <a href="/tags/{{userId}}">Tag Memes</a>
                     </li>
                 </ul>
@@ -159,16 +162,15 @@
 
     <!-- Page Content -->
     <div class="container">
-
+    <style>
+        h1 {
+            font-family: Aleo-Bold;
+        }
+    </style>
         <div class="row">
             <div class="col-lg-12" align = "center">
                 <!--pull name from DB-->
-<<<<<<< HEAD
                 <h1>{{particularName.name.title()}}</h1> <!--deleted ,20-->
-=======
-                <h1>{{particularName.name.title()}}</h1>
->>>>>>> origin/master
-            
             {% if particularUser != None %}
             <div class="radarChart"></div>
 
@@ -234,9 +236,9 @@
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+              <!--   <div class="col-lg-12">
                     <p>Copyright &copy; Memers</p>
-                </div>
+                </div> -->
             </div>
         </footer>
 
