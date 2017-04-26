@@ -62,15 +62,27 @@ function pictureChange(){
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/discover">Discover</a>
+                     <li>
+                        <a href="/memes/{{userId}}">Discover</a>
                     </li>
                     <li>
-                        <a href="/results">Your Matches</a>
+                        <a href="/results/{{userId}}">Your Matches</a>
                     </li>
                     <li>
-                        <a href="/profile">Your Profile</a>
+                        <a href="/profile/{{userId}}">Your Profile</a>
                     </li>
+                    <li>
+                        <a href="/display/{{userId}}">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/tags/{{userId}}">Tag Memes</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav" style="float:right;">
+                     <li>
+                        <a href="/logout" class="confirmations">Log Out</a>
+                    </li>
+                    <script src="../static/js/confirmations.js"></script>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

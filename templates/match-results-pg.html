@@ -64,7 +64,10 @@
                         <a href="/profile/{{userId}}">Your Profile</a>
                     </li>
                     <li>
-                        <a href="/display">Gallery</a>
+                        <a href="/display/{{userId}}">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/tags/{{userId}}">Tag Memes</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav" style="float:right;">
@@ -105,9 +108,11 @@
                     <img class="img-circle img-responsive img-center" src="../static/media/design/avatar1.png" height="300" width="300" alt="" >
                     <h3> 
                         <small>{{partners.index(partner)+1}}</small>
-                        <small>{{partner.title()}}</small>
+                        {% if partner.facebookLink != None %}
+                        <a href="{{partner.facebookLink}}">{{partner.name.title()}}</a>
+                     {% endif %}
                     </h3>
-                    <p>I'm fun. Lets connect! </p>
+                     
                 </div>
                 {% endfor %}
             {% endif %}
@@ -117,8 +122,7 @@
                 </h3></center>
             {% endif %}
         </div>
-
-        <hr>
+        <!--<hr>-->
 
         <!-- Footer -->
         <footer>

@@ -93,8 +93,15 @@
                         <a href="/profile/{{userId}}">Your Profile</a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <br>
                         <a href="/display">Gallery</a>
+=======
+                        <a href="/display/{{userId}}">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/tags/{{userId}}">Tag Memes</a>
+>>>>>>> origin/master
                     </li>
                 </ul>
                  <ul class="nav navbar-nav" style="float:right;">
@@ -159,7 +166,11 @@
         <div class="row">
             <div class="col-lg-12" align = "center">
                 <!--pull name from DB-->
+<<<<<<< HEAD
                 <h1>{{particularName.name.title()}}</h1> <!--deleted ,20-->
+=======
+                <h1>{{particularName.name.title()}}</h1>
+>>>>>>> origin/master
             
             {% if particularUser != None %}
             <div class="radarChart"></div>
@@ -226,8 +237,10 @@
         <!-- Footer -->
         <footer>
             <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Memers</p>
+                </div>
             </div>
-            <!-- /.row -->
         </footer>
 
     </div>
