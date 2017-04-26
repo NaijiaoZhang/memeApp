@@ -123,6 +123,7 @@ CREATE TRIGGER Add_To_Tag_Table
 	FOR EACH ROW
 	EXECUTE PROCEDURE Add_To_Tag_Table();
 
+CREATE INDEX indexOnMeme ON Meme;
 
 -- #hand-populated small dataset
 
