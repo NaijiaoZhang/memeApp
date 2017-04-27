@@ -20,7 +20,8 @@ def logout():
 
 @app.route('/display/<userId>')
 def discover_page(userId):
-    memes = db.session.query(models.Meme).all()
+    # memes = db.session.query(models.Meme).all()
+    memes = db.session.query(models.Meme).filter(models.Meme.memeid < 301)
     return render_template('meme-pg.html',memes=memes, userId=userId)
 
 @app.route('/results/<userId>')
